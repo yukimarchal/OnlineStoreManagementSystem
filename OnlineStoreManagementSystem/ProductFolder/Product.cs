@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 using ToolBox;
-using static ToolBox.Delegates;
 
 namespace OnlineStoreManagementSystem
 {

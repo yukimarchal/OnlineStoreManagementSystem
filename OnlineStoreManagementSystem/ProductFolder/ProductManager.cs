@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using ToolBox;
-using ToolBox.PersonalCareTools;
 using static ToolBox.Delegates;
 
 namespace OnlineStoreManagementSystem
@@ -19,6 +19,8 @@ namespace OnlineStoreManagementSystem
         #endregion
 
         #region Constructors
+
+        public ProductManager() { }
 
         public ProductManager(List<Product> products)
         {
@@ -83,10 +85,11 @@ namespace OnlineStoreManagementSystem
             if(Products.Any(p => p.ProductId == product.ProductId))
             {
                 throw new ElementAlreadyRegisteredException();
-                !//------------ AFTER EXECUTING THE EXEPTION, WHAT HAPPENS?? ---------
+                //------------ AFTER EXECUTING THE EXEPTION, WHAT HAPPENS?? ---------
             }
 
             Products.Add(product);
+            Console.WriteLine($"Product {product.ProductId} was successfully added");
         }
 
         /// <summary>
@@ -103,6 +106,7 @@ namespace OnlineStoreManagementSystem
             }
 
             Products.RemoveAll(p => p.ProductId == product.ProductId);
+            Console.WriteLine($"Product {product.ProductId} was successfully removed");
         }
 
         /// <summary>
@@ -119,6 +123,7 @@ namespace OnlineStoreManagementSystem
             }
 
             Products.Remove(this[id]);
+            Console.WriteLine($"Product {id} was successfully removed");
         }
 
         /// <summary>
@@ -133,7 +138,30 @@ namespace OnlineStoreManagementSystem
 
         #region Product factory
 
-        public T AddProduct<T>() where T : Product, new()
+        //public Product AddProductStep1()
+        //{
+        //    MessageDelegate message = () => 
+        //    Console.WriteLine("Choose product type by a number");
+        //    Console.WriteLine("1 : Clothes");
+        //    Console.WriteLine("2 : Food");
+        //    Console.WriteLine("3 : Personal care");
+
+        //    Product? product = null;
+
+        //    Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
+        //    switch (result)
+        //    {
+        //        case 1: product = AddProductStep2<Clothes>();
+        //            break;
+        //        case 2: product = AddProductStep2<Food>();
+        //            break;
+        //        case 3: product = AddProductStep2<PersonalCare>();
+        //            break;
+        //    }
+        //    return product;
+        //}
+
+        public T AddProductStep2<T>() where T : Product, new()
         {
             // Create new T instance
             T product = new T();
@@ -144,18 +172,18 @@ namespace OnlineStoreManagementSystem
             product.Price = AskPrice();
 
             // Assign the rest of the field depending on the type
-            if (product is Food food)
-            {
-                food.Allergies = AllergyManager.MakeAllergyTable();
-            }
-
             if (product is Clothes clothes)
             {
                 clothes.ClothesCategory = ClothesManager.AskClothesCategory();
                 clothes.Colors = ColorManager.MakeColorTable();
             }
 
-            if (product is PersonalCare personalCare)
+            else if (product is Food food)
+            {
+                food.Allergies = AllergyManager.MakeAllergyTable();
+            }
+
+            else if (product is PersonalCare personalCare)
             {
                 personalCare.PersonalCareCategory = PersonalCareManager.AskPersonalCareCategory();
                 personalCare.Colors = ColorManager.MakeColorTable();
@@ -182,10 +210,11 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public double AskPrice()
         {
-            MessageDelegate message = () => Console.WriteLine("How much is it?");
-            Console.WriteLine("How much is it?");
-            double price = Tool.GetDouble(message);
-            return price;
+            //MessageDelegate message = () => Console.WriteLine("How much is it?");
+            //Console.WriteLine("How much is it?");
+            //double price = Tool.GetDouble(message);
+            //return price;
+            return 0;
         }
 
         #endregion

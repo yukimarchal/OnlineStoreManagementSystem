@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OnlineStoreManagementSystem;
 using static ToolBox.Delegates;
 
-namespace ToolBox.PersonalCareTools
+namespace ToolBox
 {
     public static class PersonalCareManager
     {
