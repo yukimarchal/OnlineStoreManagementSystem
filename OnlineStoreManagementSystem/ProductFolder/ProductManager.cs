@@ -46,7 +46,7 @@ namespace OnlineStoreManagementSystem
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        /// <exception cref="KeyNotFoundException"></exception>
+        /// <exception cref="ElementNotRegisteredException"></exception>
         public Product? this[Guid id]
         {
             get
