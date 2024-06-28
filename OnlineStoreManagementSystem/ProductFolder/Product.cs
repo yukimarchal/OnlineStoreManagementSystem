@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using ToolBox;
+using static ToolBox.Delegates;
 
 namespace OnlineStoreManagementSystem
 {
@@ -17,6 +20,11 @@ namespace OnlineStoreManagementSystem
         #endregion
 
         #region Constructors
+
+        protected Product()
+        {
+            ProductId = Guid.NewGuid();
+        }
 
         public Product(string name, double price)
         {
@@ -44,6 +52,12 @@ namespace OnlineStoreManagementSystem
             get { return _price; }
             set { _price = value; }
         }
+
+        #endregion
+
+        #region Methods
+
+        public abstract void ShowContents();
 
         #endregion
     }

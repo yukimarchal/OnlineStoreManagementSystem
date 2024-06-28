@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStoreManagementSystem
+namespace ToolBox
 {
-    public enum Allergy
+    public enum EnumAllergy
     {
         Milk = 1,
         Eggs,
@@ -15,6 +15,9 @@ namespace OnlineStoreManagementSystem
         Soy,
         Fish,
         Shellfish,
+        Pork,
+        Beef,
+        Chicken,
         Wheat,
         Triticale,
         Celery,
@@ -26,6 +29,7 @@ namespace OnlineStoreManagementSystem
         Mushroom,
         Onion,
         Mustard,
-        Spices
+        Spices,
+        None
     }
 }

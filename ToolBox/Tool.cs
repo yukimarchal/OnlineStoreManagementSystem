@@ -4,6 +4,10 @@ namespace ToolBox
 {
     public static class Tool
     {
+        #region Methods
+
+        #region User input
+
         /// <summary>
         /// Verify if the choice is within the condition, if not it continues to ask for new input
         /// </summary>
@@ -11,7 +15,7 @@ namespace ToolBox
         /// <param name="start">starting number of choice (included)</param>
         /// <param name="end">ending number of choice (included)</param>
         /// <returns>Return true for escape and outputs -1, return false and outputs a number, r</returns>
-        public static bool AskValidChocie(MessageDelegate message, int start, int end, out int result)
+        public static bool TryGetIntLimitedRange(MessageDelegate message, int start, int end, out int result)
         {
             message();
             result = -1;
@@ -38,11 +42,31 @@ namespace ToolBox
             {
                 ShowErrorMessage("Invalid Input");
 
-                AskValidChocie(message, start, end, out result);
+                TryGetIntLimitedRange(message, start, end, out result);
             }
 
             return false;
         }
+
+        public static double GetDouble(MessageDelegate message)
+        {
+            message();
+            try
+            {
+                double result = double.Parse(Console.ReadLine());
+                return result;
+            }
+            catch (Exception)
+            {
+                ShowErrorMessage("Invalid entry");
+                GetDouble(message);
+            }
+            return 0;
+        }
+
+        #endregion
+
+        #region Console message
 
         public static void ShowErrorMessage(string errorMessage)
         {
@@ -53,5 +77,9 @@ namespace ToolBox
             Thread.Sleep(3000);
             Console.Clear();
         }
+
+        #endregion
+
+        #endregion
     }
 }

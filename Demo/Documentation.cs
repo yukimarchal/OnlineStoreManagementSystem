@@ -113,8 +113,8 @@ En suivant ces directives de conception, vous pourrez avancer dans la conception
 
 //Class:
 //    Product (productId, name, price)
-//        Clothes (colors[], category)
-//        Cosmetics (colors[], allergies[])
+//        Clothes (enumcolors[], category)
+//        Cosmetics (enumcolors[], allergies[])
 //        Food (allergies[])
 //    ProductManager (products[])
 //    Customer (customerId, firstname, lastname, address)

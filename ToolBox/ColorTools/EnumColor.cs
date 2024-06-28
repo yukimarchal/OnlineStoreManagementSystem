@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStoreManagementSystem
+namespace ToolBox
 {
-    public enum Color
+    public enum EnumColor
     {
         Red = 1,
         Yellow,

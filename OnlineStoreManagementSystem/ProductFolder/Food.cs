@@ -3,10 +3,66 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToolBox;
 
 namespace OnlineStoreManagementSystem
 {
-    public class Food : Product, IAllergyManager
+    public class Food : Product
     {
+        #region Field
+
+        private List<EnumAllergy> allergies = new List<EnumAllergy>();
+
+        #endregion
+
+        #region Constructors
+
+        private Food()
+        {
+            ProductId = Guid.NewGuid();
+        }
+        public Food(string name, double price, params EnumAllergy[] allergies) : base(name, price)
+        {
+            ProductId = Guid.NewGuid();
+
+            foreach(EnumAllergy allergy in allergies)
+            {
+                Allergies.Add(allergy);
+            }
+        }
+
+        #endregion
+
+        #region Properties
+
+        public List<EnumAllergy> Allergies
+        {
+            get { return allergies; }
+
+            set { allergies = value; }
+        }
+
+        #endregion
+
+        #region Methods
+
+        public override void ShowContents()
+        {
+            // Make a string with all the registered allergies
+            string allergyList = "";
+            foreach (EnumAllergy allergy in Allergies)
+            {
+                allergyList += allergy.ToString();
+                allergyList += ", ";
+            }
+
+            // Show all the contents of this object
+            Console.WriteLine($"ID : {ProductId}");
+            Console.WriteLine($"Name : {Name}");
+            Console.WriteLine($"Price : {Price}");
+            Console.WriteLine($"Alergies : {allergyList}");
+        }
+
+        #endregion
     }
 }

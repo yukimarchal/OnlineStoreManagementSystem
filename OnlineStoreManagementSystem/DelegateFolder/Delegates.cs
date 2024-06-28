@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace OnlineStoreManagementSystem
 {
-    public delegate List<Color> MakeColorTableDelegate();
+    public delegate List<EnumColor> MakeEnumColorTableDelegate();
 
     public class Delegates
     {
 
-        public MakeColorTableDelegate makeColorTableDelegate;
+        public MakeEnumColorTableDelegate makeEnumColorTableDelegate;
 
         public Delegates()
         {
-            makeColorTableDelegate = MakeColorTable;
+            makeEnumColorTableDelegate = MakeEnumColorTable;
         }
 
-        public List<Color> MakeColorTable()
+        public List<EnumColor> MakeEnumColorTable()
         {
-            List<Color> colors = new List<Color>();
+            List<EnumColor> enumcolors = new List<EnumColor>();
 
             do
             {
                 Console.WriteLine("");
             } while (true);
 
-            return colors;
+            return enumcolors;
         }
     }
 }
