@@ -55,7 +55,7 @@ Tool.AddLine();
 
 #region Product manager
 
-// Create an instance to stock the products
+// Create instances to stock the products
 ProductManager productManager = new ProductManager();
 
 // Add products

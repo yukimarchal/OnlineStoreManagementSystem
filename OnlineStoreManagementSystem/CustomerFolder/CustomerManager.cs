@@ -27,14 +27,14 @@ namespace OnlineStoreManagementSystem
 
         #region Indexer
 
+        /// <summary>
+        /// Indexer to find a customer by the CustomerId
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="ElementNotRegisteredException"></exception>
         public Customer? this[Guid id]
         {
-            /// <summary>
-            /// Indexer to find a customer by the CustomerId
-            /// </summary>
-            /// <param name="id"></param>
-            /// <returns></returns>
-            /// <exception cref="ElementNotRegisteredException"></exception>
             get
             {
                 // Verify if the id is not registered
@@ -59,7 +59,69 @@ namespace OnlineStoreManagementSystem
 
         #region Methods
 
+        #region List managers
 
+        /// <summary>
+        /// Add a customer to the list « customers ». Customers will be distinguished by ID.
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <exception cref="ElementAlreadyRegisteredException"></exception>
+        public void Add(Customer customer)
+        {
+            // Verify if the product ID already exists in the list
+            if (Customers.Any(c => c.CustomerId == customer.CustomerId))
+            {
+                throw new ElementAlreadyRegisteredException();
+            }
+
+            Customers.Add(customer);
+            Console.WriteLine($"Customer [{customer.CustomerId}] was successfully added");
+            customer.ShowContents();
+        }
+
+        /// <summary>
+        /// Remove a customer from the list « customers ». 
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <exception cref="ElementAlreadyRegisteredException"></exception>
+        public void Remove(Customer customer)
+        {
+            // Verify if the ID does not existe in the list
+            if (!(Customers.Any(c => c.CustomerId == customer.CustomerId)))
+            {
+                throw new ElementNotRegisteredException();
+            }
+
+            Customers.RemoveAll(c => c.CustomerId == customer.CustomerId);
+            Console.WriteLine($"Customer [{customer.CustomerId}] was successfully removed");
+        }
+
+        /// <summary>
+        /// Remove a customer from the list « customers ».
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="ElementAlreadyRegisteredException"></exception>
+        public void Remove(Guid id)
+        {
+            // Verify if the ID does not existe in the list
+            if (!(Customers.Any(c => c.CustomerId == id)))
+            {             
+                throw new ElementNotRegisteredException();
+            }
+
+            Customers.Remove(this[id]);
+            Console.WriteLine($"Customer {id} was successfully removed");
+        }
+
+        /// <summary>
+        /// Return the number of elements in the list « products »
+        /// </summary>
+        /// <returns></returns>
+        public int Count()
+        {
+            return Customers.Count;
+        }
+        #endregion
 
         #endregion
 

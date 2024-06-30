@@ -75,7 +75,7 @@ namespace OnlineStoreManagementSystem
         #region List managers
 
         /// <summary>
-        /// Add a product to the list « products ». Products wills be distinguished by ID.
+        /// Add a product to the list « products ». Products will be distinguished by ID.
         /// </summary>
         /// <param name="product"></param>
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
@@ -89,7 +89,8 @@ namespace OnlineStoreManagementSystem
             }
 
             Products.Add(product);
-            Console.WriteLine($"Product {product.ProductId} was successfully added");
+            Console.WriteLine($"Product was successfully added");
+            product.ShowContents();
         }
 
         /// <summary>
@@ -99,14 +100,14 @@ namespace OnlineStoreManagementSystem
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
         public void Remove(Product product)
         {
-            // Verify if the product ID does not existe in the list
+            // Verify if the ID does not existe in the list
             if (!(Products.Any(p => p.ProductId == product.ProductId)))
             {
                 throw new ElementNotRegisteredException();
             }
 
             Products.RemoveAll(p => p.ProductId == product.ProductId);
-            Console.WriteLine($"Product {product.ProductId} was successfully removed");
+            Console.WriteLine($"Product [{product.ProductId}] was successfully removed");
         }
 
         /// <summary>
@@ -116,14 +117,14 @@ namespace OnlineStoreManagementSystem
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
         public void Remove(Guid id)
         {
-            // Verify if the product ID does not existe in the list
+            // Verify if the ID does not existe in the list
             if (!(Products.Any(p => p.ProductId == id)))
             {
                 throw new ElementNotRegisteredException();
             }
 
             Products.Remove(this[id]);
-            Console.WriteLine($"Product {id} was successfully removed");
+            Console.WriteLine($"Product [{id}] was successfully removed");
         }
 
         /// <summary>
