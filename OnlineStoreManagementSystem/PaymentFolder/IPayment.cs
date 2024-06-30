@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OnlineStoreManagementSystem
 {
-    public interface IPaypal
+    public interface IPayment
     {
+        public bool RedirectTo();
     }
 }

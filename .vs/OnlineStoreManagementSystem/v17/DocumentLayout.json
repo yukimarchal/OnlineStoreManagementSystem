@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\orderfolder\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\orderfolder\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\paymentfolder\\ipayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\paymentfolder\\ipayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\orderfolder\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\orderfolder\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\paymentfolder\\bankcontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\paymentfolder\\bankcontact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\paymentfolder\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\paymentfolder\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\paymentfolder\\paypal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\paymentfolder\\paypal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\paymentfolder\\enumpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\paymentfolder\\enumpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0037F92F-9675-4AC8-8CAA-95EED01FD527}|Demo\\Demo.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\demo\\documentation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0037F92F-9675-4AC8-8CAA-95EED01FD527}|Demo\\Demo.csproj|solutionrelative:demo\\documentation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\customerfolder\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\customerfolder\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,20 +45,98 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\OrderFolder\\Order.cs",
+              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\OrderFolder\\Order.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\OrderFolder\\Order.cs",
+              "RelativeToolTip": "OnlineStoreManagementSystem\\OrderFolder\\Order.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAA1wBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T17:10:15.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IPayment.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\IPayment.cs",
+              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\PaymentFolder\\IPayment.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\IPayment.cs",
+              "RelativeToolTip": "OnlineStoreManagementSystem\\PaymentFolder\\IPayment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T17:02:03.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EnumPayment.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\EnumPayment.cs",
+              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\PaymentFolder\\EnumPayment.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\EnumPayment.cs",
+              "RelativeToolTip": "OnlineStoreManagementSystem\\PaymentFolder\\EnumPayment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T17:01:18.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Paypal.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\Paypal.cs",
+              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\PaymentFolder\\Paypal.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\Paypal.cs",
+              "RelativeToolTip": "OnlineStoreManagementSystem\\PaymentFolder\\Paypal.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T17:00:53.975Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Delivery.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\OrderFolder\\Delivery.cs",
-              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\OrderFolder\\Delivery.cs",
-              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\OrderFolder\\Delivery.cs",
-              "RelativeToolTip": "OnlineStoreManagementSystem\\OrderFolder\\Delivery.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAkwDEAAAADAAAA",
+              "DocumentIndex": 2,
+              "Title": "BankContact.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\BankContact.cs",
+              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\PaymentFolder\\BankContact.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\BankContact.cs",
+              "RelativeToolTip": "OnlineStoreManagementSystem\\PaymentFolder\\BankContact.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T16:24:49.919Z",
+              "WhenOpened": "2024-06-30T16:57:16.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\Card.cs",
+              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\PaymentFolder\\Card.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\PaymentFolder\\Card.cs",
+              "RelativeToolTip": "OnlineStoreManagementSystem\\PaymentFolder\\Card.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T16:51:01.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
+              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
+              "RelativeToolTip": "OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAswD4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T16:36:59.81Z",
               "EditorCaption": ""
             }
           ]
@@ -60,13 +162,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Documentation.cs",
               "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\Demo\\Documentation.cs",
               "RelativeDocumentMoniker": "Demo\\Documentation.cs",
               "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\Demo\\Documentation.cs",
               "RelativeToolTip": "Demo\\Documentation.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAAAH8AAAAxAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAH8AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T15:30:58.698Z",
               "EditorCaption": ""

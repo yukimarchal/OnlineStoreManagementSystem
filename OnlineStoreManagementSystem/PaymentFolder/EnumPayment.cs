@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace OnlineStoreManagementSystem
 {
-    public interface ICard
+    public enum EnumPayment
     {
+        Card = 1,
+        Paypal,
+        BankContact
     }
 }
