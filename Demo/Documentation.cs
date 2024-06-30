@@ -153,12 +153,15 @@ En suivant ces directives de conception, vous pourrez avancer dans la conception
 
 #endregion
 
-#region Errors
+#region Errors and questions
 
-// « ProductManager » Public Product AddProductStep1()
+// « ProductManager » public Product AddProductStep1()
 // « ProductManager » public void Add(Product product)
 // « ProductManager » public double AskPrice()
 // Show lists how to remove the last « , »
 // productManager.Count => System.Func`1[System.Int32] 
+// « ProductMaager » public T AddProductStep2 Access Modifier of the constructor and productId?
+// Should I make empty constructor to private and make a customerFactory() in the same class?
+
 
 #endregion

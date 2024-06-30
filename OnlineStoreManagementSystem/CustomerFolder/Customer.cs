@@ -19,13 +19,13 @@ namespace OnlineStoreManagementSystem
 
         #region Constructors
 
-        private Customer()
+        internal Customer()
         {
-
+            CustomerId = Guid.NewGuid();
         }
         public Customer(string firstName, string lastName, string address)
         {
-            CustomerId = new Guid();
+            CustomerId = Guid.NewGuid();
             FirstName = firstName;
             LastName = lastName;
             Address = address;
@@ -66,6 +66,16 @@ namespace OnlineStoreManagementSystem
             Console.WriteLine($"First Name : {FirstName}");
             Console.WriteLine($"Last Name : {LastName}");
             Console.WriteLine($"Address : {Address}");
+        }
+
+        /// <summary>
+        /// Create a customer instance with ID and return
+        /// </summary>
+        /// <returns></returns>
+        internal static Customer CustomerFactory()
+        {
+            Customer customer = new Customer();
+            return customer;
         }
 
         #endregion

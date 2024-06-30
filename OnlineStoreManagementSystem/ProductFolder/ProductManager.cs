@@ -141,22 +141,27 @@ namespace OnlineStoreManagementSystem
 
         //public Product AddProductStep1()
         //{
-        //    MessageDelegate message = () => 
-        //    Console.WriteLine("Choose product type by a number");
-        //    Console.WriteLine("1 : Clothes");
-        //    Console.WriteLine("2 : Food");
-        //    Console.WriteLine("3 : Personal care");
+        //    MessageDelegate message = () =>
+        //    {
+        //        Console.WriteLine("Choose product type by a number");
+        //        Console.WriteLine("1 : Clothes");
+        //        Console.WriteLine("2 : Food");
+        //        Console.WriteLine("3 : Personal care");
+        //    };
 
         //    Product? product = null;
 
         //    Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
         //    switch (result)
         //    {
-        //        case 1: product = AddProductStep2<Clothes>();
+        //        case 1:
+        //            product = AddProductStep2<Clothes>();
         //            break;
-        //        case 2: product = AddProductStep2<Food>();
+        //        case 2:
+        //            product = AddProductStep2<Food>();
         //            break;
-        //        case 3: product = AddProductStep2<PersonalCare>();
+        //        case 3:
+        //            product = AddProductStep2<PersonalCare>();
         //            break;
         //    }
         //    return product;
@@ -168,7 +173,7 @@ namespace OnlineStoreManagementSystem
             T product = new T();
             
             // Assign common fields
-            product.ProductId = Guid.NewGuid();
+            //product.ProductId = Guid.NewGuid();
             product.Name = AskName();
             product.Price = AskPrice();
 
@@ -211,11 +216,13 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public double AskPrice()
         {
-            //MessageDelegate message = () => Console.WriteLine("How much is it?");
-            //Console.WriteLine("How much is it?");
-            //double price = Tool.GetDouble(message);
-            //return price;
-            return 0;
+            MessageDelegate message = () => 
+            {
+                Console.WriteLine("How much is it?");
+            };
+
+            double price = Tool.GetDouble(message);
+            return price;
         }
 
         #endregion

@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\customerfolder\\customermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\productfolder\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\productfolder\\productmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\customerfolder\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\customerfolder\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0037F92F-9675-4AC8-8CAA-95EED01FD527}|Demo\\Demo.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\demo\\documentation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0037F92F-9675-4AC8-8CAA-95EED01FD527}|Demo\\Demo.csproj|solutionrelative:demo\\documentation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,14 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductManager.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\ProductFolder\\ProductManager.cs",
-              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\ProductFolder\\ProductManager.cs",
-              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\ProductFolder\\ProductManager.cs",
-              "RelativeToolTip": "OnlineStoreManagementSystem\\ProductFolder\\ProductManager.cs",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAswGYAAAAdAAAA",
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
+              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
+              "RelativeToolTip": "OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T14:25:09.478Z",
+              "WhenOpened": "2024-06-30T15:58:34.588Z",
               "EditorCaption": ""
             },
             {
@@ -49,22 +49,43 @@
               "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\CustomerFolder\\CustomerManager.cs",
               "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\CustomerFolder\\CustomerManager.cs",
               "RelativeToolTip": "OnlineStoreManagementSystem\\CustomerFolder\\CustomerManager.cs",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAUwHsAAAASAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-30T14:24:27.183Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "a261ece6-f358-4ca6-9daa-686ac26c2a6e",
+        "Display": 0,
+        "X": 214,
+        "Y": 240,
+        "Width": 1522,
+        "Height": 576,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
-              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
-              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
-              "RelativeToolTip": "OnlineStoreManagementSystem\\CustomerFolder\\Customer.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAtwD4AAAAgAAAA",
+              "Title": "Documentation.cs",
+              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\Demo\\Documentation.cs",
+              "RelativeDocumentMoniker": "Demo\\Documentation.cs",
+              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\Demo\\Documentation.cs",
+              "RelativeToolTip": "Demo\\Documentation.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAAKMAAABdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-30T14:24:24.922Z",
+              "WhenOpened": "2024-06-30T15:30:58.698Z",
               "EditorCaption": ""
             }
           ]

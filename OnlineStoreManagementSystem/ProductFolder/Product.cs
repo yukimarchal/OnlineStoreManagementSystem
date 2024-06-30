@@ -20,7 +20,7 @@ namespace OnlineStoreManagementSystem
 
         #region Constructors
 
-        protected Product()
+        internal Product()
         {
             ProductId = Guid.NewGuid();
         }
@@ -39,7 +39,7 @@ namespace OnlineStoreManagementSystem
         public Guid ProductId
 		{
 			get { return _productId; }
-			set { _productId = value; }
+			internal set { _productId = value; }
 		}
         public string Name
         {

@@ -17,17 +17,19 @@ namespace ToolBox
         {
             // To send as parameter, affect message to show before the user input
             MessageDelegate message = () =>
-            Console.WriteLine("Add the category by number");
-            Console.WriteLine();
-            Console.WriteLine("1 : Skin care");
-            Console.WriteLine("2 : Hair care");
-            Console.WriteLine("3 : Hair removal");
-            Console.WriteLine("4 : Deodorant");
-            Console.WriteLine("5 : Make-up");
-            Console.WriteLine("6 : Perfume");
-            Console.WriteLine("7 : Body care");
-            Console.WriteLine("8 : Nail care");
-            Console.WriteLine("9 : Oral care");
+            {
+                Console.WriteLine("Add the category by number");
+                Console.WriteLine();
+                Console.WriteLine("1 : Skin care");
+                Console.WriteLine("2 : Hair care");
+                Console.WriteLine("3 : Hair removal");
+                Console.WriteLine("4 : Deodorant");
+                Console.WriteLine("5 : Make-up");
+                Console.WriteLine("6 : Perfume");
+                Console.WriteLine("7 : Body care");
+                Console.WriteLine("8 : Nail care");
+                Console.WriteLine("9 : Oral care");
+            };
 
             // Ask for the choice. Verify the choice with the condition. It continues to ask till obtaining the good choice. In case of escape, it stops registering
             Tool.TryGetIntLimitedRange(message, 1, 9, out int result);

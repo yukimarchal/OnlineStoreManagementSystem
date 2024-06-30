@@ -75,7 +75,7 @@ namespace OnlineStoreManagementSystem
             }
 
             Customers.Add(customer);
-            Console.WriteLine($"Customer [{customer.CustomerId}] was successfully added");
+            Console.WriteLine($"Customer was successfully added");
             customer.ShowContents();
         }
 
@@ -110,7 +110,7 @@ namespace OnlineStoreManagementSystem
             }
 
             Customers.Remove(this[id]);
-            Console.WriteLine($"Customer {id} was successfully removed");
+            Console.WriteLine($"Customer [{id}] was successfully removed");
         }
 
         /// <summary>
@@ -121,6 +121,58 @@ namespace OnlineStoreManagementSystem
         {
             return Customers.Count;
         }
+        #endregion
+
+        #region Customer factory
+
+        public Customer AddCustomer()
+        {
+            // Create a new instance
+            // Customer customer = new Customer();
+            Customer customer = Customer.CustomerFactory();
+
+            // Assign fields
+            customer.FirstName = AskFirstName();
+            customer.LastName = AskLastName();
+            customer.Address = AskAddress();
+
+            return customer;
+        }
+
+        /// <summary>
+        /// Ask for the first name of the customer
+        /// </summary>
+        /// <returns></returns>
+        public string AskFirstName()
+        {
+            Console.WriteLine("What is the FIRST name of the customer?");
+            string firstName = Console.ReadLine();
+            return firstName;
+        }
+
+        /// <summary>
+        /// Ask for the last name of the customer
+        /// </summary>
+        /// <returns></returns>
+        public string AskLastName()
+        {
+            Console.WriteLine("What is the LAST name of the customer?");
+            string lastName = Console.ReadLine();
+            return lastName;
+        }
+
+        /// <summary>
+        /// Ask for the last name of the customer
+        /// </summary>
+        /// <returns></returns>
+        public string AskAddress()
+        {
+            Console.WriteLine("What is the address of the customer?");
+            string address = Console.ReadLine();
+            return address;
+        }
+
+
         #endregion
 
         #endregion

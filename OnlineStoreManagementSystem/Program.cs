@@ -51,7 +51,26 @@ Tool.AddLine();
 
 #endregion
 
+Tool.AddLine();
+
+#region Customer
+
+// Create instances with constructors
+Customer c1 = new Customer("Mickey", "Mouse", "123 Disney Lane");
+Customer c2 = new Customer("Donald", "Duck", "456 Quack Street");
+Customer c3 = new Customer("Goofy", "Goof", "789 Silly Circle");
+
+c1.ShowContents();
+c2.ShowContents();
+c3.ShowContents();
+
+#endregion
+
+Tool.AddLine();
+
 #region Managers
+
+Tool.AddLine();
 
 #region Product manager
 
@@ -89,6 +108,44 @@ Console.WriteLine($"P1's name : {productManager[p1.ProductId].Name}");
 
 // Product factory
 //productManager.AddProductStep1();
+
+#endregion
+
+Tool.AddLine();
+
+#region Customer manager
+
+// Create instances to stock the customers
+CustomerManager customerManager = new CustomerManager();
+
+// Add products
+customerManager.Add(c1);
+customerManager.Add(c2);
+customerManager.Add(c3);
+
+//Error test OK
+//customerManager.Add(c3);
+
+// Count the number of registered customers
+Console.WriteLine($"There are {customerManager.Count} elements in the list");
+
+// Remove products
+customerManager.Remove(c2.CustomerId);
+customerManager.Remove(c3);
+Console.WriteLine($"There are {customerManager.Count} elements in the list");
+
+// Error test OK
+//customerManager.Remove(c2.CustomerId);
+//customerManager.Remove(c3);
+
+// Indexer
+Console.WriteLine($"P1's name : {customerManager[c1.CustomerId].FirstName}");
+
+// Error test OK
+//Console.WriteLine($"P1's name : {customerManager[c2.CustomerId].FirstName}");
+
+// Product factory
+//customerManager.AddProductStep1();
 
 #endregion
 

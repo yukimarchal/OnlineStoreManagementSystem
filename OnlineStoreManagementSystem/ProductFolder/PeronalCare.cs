@@ -18,7 +18,7 @@ namespace OnlineStoreManagementSystem
         #endregion
 
         #region Constructors
-        private PersonalCare()
+        internal PersonalCare()
         {
             ProductId = Guid.NewGuid();
         }
