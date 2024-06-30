@@ -8,8 +8,8 @@ namespace OnlineStoreManagementSystem
 {
     public enum EnumPayment
     {
-        Card = 1,
-        Paypal,
-        BankContact
+        BankContact = 1,
+        CreditCard,
+        Paypal        
     }
 }
