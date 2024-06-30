@@ -119,13 +119,14 @@ En suivant ces directives de conception, vous pourrez avancer dans la conception
 //    ProductManager (products[])
 //    Customer (customerId, firstname, lastname, address)
 //    CustomerManager (customers[])
-//    Order (orderId, orderedproducts[], totalOrderPrice, FK_delivery, FK_payment, FK_customerId)
-//    ShoppingCart (cartProducts, totalCartPrice)
 //    Delivery (deliveryId, deliveryCompany, deliveryDate)
 //    Payment (isPaid)
 //        PaymentType[enum]
 //        IPaypal (username, pass)
 //        ICard (name, cardNumber, securityNumber, pin)
+//    Order (orderId, orderedproducts[], totalOrderPrice, FK_delivery, FK_payment, FK_customerId)
+//    ShoppingCart (cartProducts, totalCartPrice)
+
 
 //Indexer:
 //    products(ProductManager), customers(CustomerManager)
