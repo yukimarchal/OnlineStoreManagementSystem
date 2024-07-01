@@ -19,7 +19,9 @@ namespace OnlineStoreManagementSystem
         private List<Product> _orderedProducts = new List<Product>();
         private Customer _customer;
         private EnumPayment _payment;
-        private Delivery _delivery;
+		private bool _paymentSucceeded;
+
+		private Delivery _delivery;
 
         #endregion
 
@@ -37,6 +39,7 @@ namespace OnlineStoreManagementSystem
             Payment = payment;
             Customer = customer;
             Delivery = CreateDelivery();
+            PaymentSucceeded = Pay();
         }
 
         #endregion
@@ -74,12 +77,17 @@ namespace OnlineStoreManagementSystem
 			get { return _delivery; }
 			set { _delivery = value; }
 		}
+        public bool PaymentSucceeded
+        {
+            get { return _paymentSucceeded; }
+            set { _paymentSucceeded = value; }
+        }
 
-		#endregion
+        #endregion
 
-		#region Methods
+        #region Methods
 
-		public Delivery CreateDelivery()
+        public Delivery CreateDelivery()
 		{
 			// Message to choose the delivery company
 			MessageDelegate message = () =>

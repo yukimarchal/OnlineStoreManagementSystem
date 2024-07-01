@@ -114,7 +114,7 @@ namespace OnlineStoreManagementSystem
         }
 
         /// <summary>
-        /// Return the number of elements in the list « products »
+        /// Return the number of elements in the list « customers »
         /// </summary>
         /// <returns></returns>
         public int Count()
