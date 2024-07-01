@@ -26,21 +26,21 @@ namespace ToolBox
         {
             message();
             result = -1;
-            ConsoleKey choice = Console.ReadKey().Key;
+            ConsoleKeyInfo choice = Console.ReadKey();
 
-            if (choice == ConsoleKey.Escape)
+            if (choice.Key == ConsoleKey.Escape)
             {
                 return true;
             }
 
             try
             {
-                if ((int)choice < start || end < (int)choice)
+                if (int.Parse(choice.KeyChar.ToString()) < start || end < int.Parse(choice.KeyChar.ToString()))
                 {
                     throw new Exception();
                 }
 
-                result = (int)choice;
+                result = int.Parse(choice.KeyChar.ToString());
                 return false;
             }
 
@@ -50,6 +50,33 @@ namespace ToolBox
                 ShowErrorMessage("Invalid Input");
 
                 TryGetIntLimitedRange(message, start, end, out result);
+            }
+
+            return false;
+        }
+        public static bool TryGetIntLimitedRange(MessageDelegate message, out int result)
+        {
+            message();
+            result = -1;
+            ConsoleKey choice = Console.ReadKey().Key;
+
+            if (choice == ConsoleKey.Escape)
+            {
+                return true;
+            }
+
+            try
+            {
+                result = (int)choice;
+                return false;
+            }
+
+            // Ask the user to re-enter input
+            catch (Exception)
+            {
+                ShowErrorMessage("Invalid Input");
+
+                TryGetIntLimitedRange(message, out result);
             }
 
             return false;

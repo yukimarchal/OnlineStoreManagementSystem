@@ -73,40 +73,7 @@ namespace OnlineStoreManagementSystem
 
         #region Payment
 
-        public void ChoosePayment(Guid orderId)
-        {
-            MessageDelegate message = () =>
-            {
-                Console.WriteLine("Choose the payment method by number");
-                Console.WriteLine();
-                Console.WriteLine("1 : BankContact");
-                Console.WriteLine("2 : Credit card");
-                Console.WriteLine("3 : Paypal");
-            };
-
-            Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
-            this[orderId].Payment = (EnumPayment)result;
-        }
-
-        public bool Pay(Guid orderId)
-        {
-            switch (this[orderId].Payment)
-            {
-                case EnumPayment.BankContact:
-                    BankContact bankContact = new BankContact();
-                    return bankContact.RedirectTo();
-
-                case EnumPayment.CreditCard:
-                    CreditCard card = new CreditCard();
-                    return card.RedirectTo();
-
-                case EnumPayment.Paypal:
-                    Paypal paypal = new Paypal();
-                    return paypal.RedirectTo();
-
-                default: return false;
-            }
-        }
+        
 
         #region List managers
 
@@ -125,7 +92,7 @@ namespace OnlineStoreManagementSystem
 
             Orders.Add(order);
             Console.WriteLine($"Order was successfully added");
-            order.ShowContents();
+            //order.ShowContents();
         }
 
         /// <summary>
@@ -172,9 +139,57 @@ namespace OnlineStoreManagementSystem
         }
         #endregion
 
+        public void ChoosePayment(Guid orderId)
+        {
+            MessageDelegate message = () =>
+            {
+                Console.WriteLine("Choose the payment method by number");
+                Console.WriteLine();
+                Console.WriteLine("1 : BankContact");
+                Console.WriteLine("2 : Credit card");
+                Console.WriteLine("3 : Paypal");
+            };
+
+            Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
+            this[orderId].Payment = (EnumPayment)result;
+        }
+
+        public async Task<bool> Pay(Guid orderId)
+        {
+            bool result = false;
+            switch (this[orderId].Payment)
+            {
+                case EnumPayment.BankContact:
+                    BankContact bankContact = new BankContact();
+                    result = bankContact.RedirectTo();
+                    break;
+
+                case EnumPayment.CreditCard:
+                    CreditCard card = new CreditCard();
+                    result = card.RedirectTo();
+                    break;
+
+                case EnumPayment.Paypal:
+                    Paypal paypal = new Paypal();
+                    result = paypal.RedirectTo();
+                    break;
+
+                default: result = false; break;
+            }
+            return await Task.Run(() =>
+            {
+                Thread.Sleep(3000);
+                this[orderId].PaymentSucceeded = result;
+                OnPaymentProceeded(orderId);
+                return result;
+            });
+        }
+        //        case EnumPayment.CreditCard:
+
+
         #region Evenet handler
 
-        public delegate void PaymentProceededEventHandler(bool paymentSucceeded, EventArgs e);
+        public delegate void PaymentProceededEventHandler(Order o);
 
         public event PaymentProceededEventHandler PaymentProceeded;
 
@@ -182,18 +197,20 @@ namespace OnlineStoreManagementSystem
         {
             if (this[id].PaymentSucceeded)
             {
-                PaymentProceeded.Invoke(this[id].Pay(), EventArgs.Empty);
+                PaymentProceeded.Invoke(this[id]);
+                AssignOrderInfo(this[id]);
             }
             else
             {
-                throw new PaymentFailedException();
+                // throw new PaymentFailedException();
             }
         }
 
-        public Order CreateOrder(Order order)
+        public Order AssignOrderInfo(Order order)
         {
             order.OrderedDate = DateTime.Now;
             order.Delivery = CreateDelivery(order.OrderId);
+            Console.WriteLine($"Estimated delivery date : {order.Delivery.DeliveringDate}");
             return order;
 
             // Program.Main
@@ -205,10 +222,10 @@ namespace OnlineStoreManagementSystem
             //order.PaymentSucceeded = Pay(order.OrderId);
         }
 
-        private static void OrderPaymentProceededHandler(bool paymentSucceeded, EventArgs e)
-        {
-            CreateOrder(this[id]);
-        }
+        //private static void OrderPaymentProceededHandler(bool paymentSucceeded, EventArgs e)
+        //{
+        //    CreateOrder(order?????);
+        //}
 
         #endregion
 

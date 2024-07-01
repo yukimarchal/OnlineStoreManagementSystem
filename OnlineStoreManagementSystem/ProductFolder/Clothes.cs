@@ -21,7 +21,7 @@ namespace OnlineStoreManagementSystem
 
         #region Constuctors
 
-        internal Clothes()
+        public Clothes()
         {
             ProductId = Guid.NewGuid();
         }

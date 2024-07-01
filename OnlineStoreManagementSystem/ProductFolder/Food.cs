@@ -17,7 +17,7 @@ namespace OnlineStoreManagementSystem
 
         #region Constructors
 
-        internal Food()
+        public Food()
         {
             ProductId = Guid.NewGuid();
         }

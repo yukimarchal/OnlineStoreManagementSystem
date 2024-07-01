@@ -125,19 +125,19 @@ namespace OnlineStoreManagementSystem
 
         #region Customer factory
 
-        public Customer AddCustomer()
-        {
-            // Create a new instance
-            // Customer customer = new Customer();
-            Customer customer = Customer.CustomerFactory();
+        //public Customer AddCustomer()
+        //{
+        //    // Create a new instance
+        //    // Customer customer = new Customer();
+        //    Customer customer = Customer.CustomerFactory();
 
-            // Assign fields
-            customer.FirstName = AskFirstName();
-            customer.LastName = AskLastName();
-            customer.Address = AskAddress();
+        //    // Assign fields
+        //    customer.FirstName = AskFirstName();
+        //    customer.LastName = AskLastName();
+        //    customer.Address = AskAddress();
 
-            return customer;
-        }
+        //    return customer;
+        //}
 
         /// <summary>
         /// Ask for the first name of the customer

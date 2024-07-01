@@ -156,13 +156,13 @@ En suivant ces directives de conception, vous pourrez avancer dans la conception
 
 #region Errors and questions
 
-// « ProductManager » public Product AddProductStep1()
-// « ProductManager » public void Add(Product product)
-// « ProductManager » public double AskPrice()
-// Show lists how to remove the last « , »
-// productManager.Count => System.Func`1[System.Int32] 
-// « ProductMaager » public T AddProductStep2 Access Modifier of the constructor and productId?
+// « ProductManager » public Product AddProductStep1() OK
+// « ProductManager » public void Add(Product product) OK
+// « ProductManager » public double AskPrice() OK
+// Show lists how to remove the last « , » OK
+// productManager.Count => System.Func`1[System.Int32] OK
+// « ProductMaager » public T AddProductStep2 Access Modifier of the constructor and productId? OK
 // Should I make empty constructor to private and make a customerFactory() in the same class?
-
+// EventHandler???
 
 #endregion

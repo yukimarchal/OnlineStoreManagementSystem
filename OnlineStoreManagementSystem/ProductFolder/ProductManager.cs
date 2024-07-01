@@ -133,39 +133,39 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public int Count()
         {
-            return Products.Count;
+            return Products.Count();
         }
         #endregion
 
         #region Product factory
 
-        //public Product AddProductStep1()
-        //{
-        //    MessageDelegate message = () =>
-        //    {
-        //        Console.WriteLine("Choose product type by a number");
-        //        Console.WriteLine("1 : Clothes");
-        //        Console.WriteLine("2 : Food");
-        //        Console.WriteLine("3 : Personal care");
-        //    };
+        public Product AddProductStep1()
+        {
+            MessageDelegate message = () =>
+            {
+                Console.WriteLine("Choose product type by a number");
+                Console.WriteLine("1 : Clothes");
+                Console.WriteLine("2 : Food");
+                Console.WriteLine("3 : Personal care");
+            };
 
-        //    Product? product = null;
+            Product? product = null;
 
-        //    Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
-        //    switch (result)
-        //    {
-        //        case 1:
-        //            product = AddProductStep2<Clothes>();
-        //            break;
-        //        case 2:
-        //            product = AddProductStep2<Food>();
-        //            break;
-        //        case 3:
-        //            product = AddProductStep2<PersonalCare>();
-        //            break;
-        //    }
-        //    return product;
-        //}
+            Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
+            switch (result)
+            {
+                case 1:
+                    product = AddProductStep2<Clothes>();
+                    break;
+                case 2:
+                    product = AddProductStep2<Food>();
+                    break;
+                case 3:
+                    product = AddProductStep2<PersonalCare>();
+                    break;
+            }
+            return product;
+        }
 
         public T AddProductStep2<T>() where T : Product, new()
         {
