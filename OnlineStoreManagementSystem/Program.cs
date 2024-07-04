@@ -68,7 +68,17 @@ c3.ShowContents();
 
 Tool.AddLine();
 
+#region Shopping cart
 
+ShoppingCart cart = new ShoppingCart();
+
+
+#endregion
+
+#region Order
+
+
+#endregion
 
 #region Managers
 
@@ -157,29 +167,29 @@ Console.WriteLine($"P1's name : {customerManager[c1.CustomerId].FirstName}");
 
 
 
-OrderManager orderManager = new OrderManager();
-Order o1 = new Order();
-orderManager.Add(o1);
+//OrderManager orderManager = new OrderManager();
+//Order o1 = new Order();
+//orderManager.Add(o1);
 
-orderManager.PaymentProceeded += (order) => // ce n'est pas o1 que je dois envoyer?
-{
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine($"Le paiment de l'order n° {order.OrderId} a effectué");
-    Console.ResetColor();
-};
-
-//orderManager.Orders = [new Order(), new Order()];
-
-orderManager.ChoosePayment(o1.OrderId);
-await orderManager.Pay(o1.OrderId);
-
-
-//foreach (var order in orderManager.Orders)
+//orderManager.PaymentProceeded += (order) => // ce n'est pas o1 que je dois envoyer?
 //{
-//    orderManager.ChoosePayment(order.OrderId);
-//    await orderManager.Pay(order.OrderId);
+//    Console.ForegroundColor = ConsoleColor.Green;
+//    Console.WriteLine($"Le paiment de l'order n° {order.OrderId} a effectué");
+//    Console.ResetColor();
+//};
+
+////orderManager.Orders = [new Order(), new Order()];
+
+//orderManager.ChoosePayment(o1.OrderId);
+//await orderManager.Pay(o1.OrderId);
 
 
-//}
+////foreach (var order in orderManager.Orders)
+////{
+////    orderManager.ChoosePayment(order.OrderId);
+////    await orderManager.Pay(order.OrderId);
 
-while (true) ;
+
+////}
+
+//while (true) ;

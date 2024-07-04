@@ -27,7 +27,7 @@ namespace OnlineStoreManagementSystem
 
         #region Constructors
 
-        internal Order()
+        public Order()
 		{
 			OrderId = Guid.NewGuid();
 		}

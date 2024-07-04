@@ -14,7 +14,7 @@ namespace OnlineStoreManagementSystem
 		private string _firstName;
         private string _lastName;
         private string _address;
-
+        private string _email;
         #endregion
 
         #region Constructors
@@ -23,12 +23,13 @@ namespace OnlineStoreManagementSystem
         {
             CustomerId = Guid.NewGuid();
         }
-        public Customer(string firstName, string lastName, string address)
+        public Customer(string firstName, string lastName, string address, string email)
         {
             CustomerId = Guid.NewGuid();
             FirstName = firstName;
             LastName = lastName;
             Address = address;
+            Email = email;
         }
 
         #endregion
@@ -55,6 +56,11 @@ namespace OnlineStoreManagementSystem
 			get { return _address; }
 			set { _address = value; }
 		}
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
 
         #endregion
 
