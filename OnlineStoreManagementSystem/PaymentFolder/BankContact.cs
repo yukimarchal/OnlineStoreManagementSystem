@@ -10,8 +10,12 @@ namespace OnlineStoreManagementSystem
     {
         public bool RedirectTo()
         {
+            Console.WriteLine("Payment is being proceeded");
+            Console.ReadLine();
             // Redirect the user to the bankcontact payment
             // If the payment is succeeded, return true
+            Thread.Sleep(3000);
+
             return true;
         }
     }

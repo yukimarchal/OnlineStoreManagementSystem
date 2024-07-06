@@ -72,6 +72,7 @@ namespace OnlineStoreManagementSystem
             Console.WriteLine($"First Name : {FirstName}");
             Console.WriteLine($"Last Name : {LastName}");
             Console.WriteLine($"Address : {Address}");
+            Console.WriteLine($"Email : {Email}");
         }
 
         #endregion

@@ -12,7 +12,7 @@ namespace OnlineStoreManagementSystem
     {
         #region Field
 
-        private Dictionary<Product, int> _productsInCart;
+        private Dictionary<Product, int> _productsInCart = new Dictionary<Product, int>();
 
         #endregion
 
@@ -80,12 +80,16 @@ namespace OnlineStoreManagementSystem
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
         public void Add(Product product)
         {
-            // Verify if the product ID already exists in the list
-            if (ProductsInCart.Keys.Any(p => p.ProductId == product.ProductId))
+            if(ProductsInCart.Any())
             {
-                ProductsInCart[product] += 1;
+                // Verify if the product ID already exists in the list
+                if (ProductsInCart.Keys.Any(p => p.ProductId == product.ProductId))
+                {
+                    ProductsInCart[product] += 1;
+                    return;
+                }
             }
-
+            
             ProductsInCart.Add(product, 1);
             Console.WriteLine($"Product was successfully added to the Cart");
             product.ShowContents();
@@ -143,11 +147,12 @@ namespace OnlineStoreManagementSystem
                 Console.WriteLine("How many would you like?");
                 Console.WriteLine("If the selected quantity is lower or equal to 0, the article will be deleted");
             };
-            Tool.TryGetIntLimitedRange(message, out int result);
+            Tool.TryGetInt(message, out int result);
 
             if (result <= 0)
             {
                 ProductsInCart.Remove(product);
+                Console.WriteLine($"{product.Name} was successfully deleted");
                 return;
             }
 
@@ -184,6 +189,8 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public int Count()
         {
+            if (ProductsInCart is null) return 0;
+
             return ProductsInCart.Count();
         }
 

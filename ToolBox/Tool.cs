@@ -81,6 +81,28 @@ namespace ToolBox
 
             return false;
         }
+        public static bool TryGetInt(MessageDelegate message, out int result)
+        {
+            message();
+            result = -1;
+            string choice = Console.ReadLine();
+
+            try
+            {
+                result = int.Parse(choice);
+                return false;
+            }
+
+            // Ask the user to re-enter input
+            catch (Exception)
+            {
+                ShowErrorMessage("Invalid Input");
+
+                TryGetIntLimitedRange(message, out result);
+            }
+
+            return false;
+        }
 
         public static double GetDouble(MessageDelegate message)
         {

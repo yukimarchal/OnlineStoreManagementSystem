@@ -135,7 +135,11 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public int Count()
         {
-            return Orders.Count;
+            if(Orders is null) return 0;
+
+            int result = Orders.Count();
+
+            return result;
         }
         #endregion
 
@@ -176,15 +180,16 @@ namespace OnlineStoreManagementSystem
 
                 default: result = false; break;
             }
+
+            this[orderId].PaymentSucceeded = result;
+
+
             return await Task.Run(() =>
             {
-                Thread.Sleep(3000);
-                this[orderId].PaymentSucceeded = result;
                 OnPaymentProceeded(orderId);
                 return result;
             });
         }
-        //        case EnumPayment.CreditCard:
 
 
         #region Evenet handler

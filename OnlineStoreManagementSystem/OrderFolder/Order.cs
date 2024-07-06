@@ -16,7 +16,7 @@ namespace OnlineStoreManagementSystem
 
         private Guid _orderId;
         private DateTime _orderedDate;
-        private List<Product> _orderedProducts = new List<Product>();
+        private Dictionary<Product, int> _orderedProducts = new Dictionary<Product, int>();
         private Customer _customer;
         private EnumPayment _payment;
 		private bool _paymentSucceeded;
@@ -31,7 +31,16 @@ namespace OnlineStoreManagementSystem
 		{
 			OrderId = Guid.NewGuid();
 		}
-        public Order(List<Product> orderedProducts, Customer customer, EnumPayment payment)
+        public Order(Dictionary<Product, int> orderedProducts, Customer customer)
+        {
+            OrderId = Guid.NewGuid();
+            OrderedDate = DateTime.Now;
+            OrderedProducts = orderedProducts;
+            Customer = customer;
+            //Delivery = CreateDelivery();
+            //PaymentSucceeded = Pay();
+        }
+        public Order(Dictionary<Product, int> orderedProducts, Customer customer, EnumPayment payment)
         {
             OrderId = Guid.NewGuid();
 			OrderedDate = DateTime.Now;
@@ -57,7 +66,7 @@ namespace OnlineStoreManagementSystem
 			set { _orderedDate = value; }
 		}
 
-		public List<Product> OrderedProducts
+		public Dictionary<Product, int> OrderedProducts
 		{
 			get { return _orderedProducts; }
 			set { _orderedProducts = value; }
@@ -156,10 +165,10 @@ namespace OnlineStoreManagementSystem
             double totalPrice = 0;
             //string orderedProducts = "";
 			// TODO relire
-            string orderedProducts = string.Join(", ", OrderedProducts.Select(p => p.Name));
-            foreach (Product product in OrderedProducts)
+            string orderedProducts = string.Join(", ", OrderedProducts.Select(p => p.Key.Name));
+            foreach (Product product in OrderedProducts.Keys)
             {
-                totalPrice += product.Price;
+                totalPrice += product.Price * OrderedProducts[product];
                 //orderedProducts += ($"{product.Name}, ");
             }
 
@@ -170,6 +179,8 @@ namespace OnlineStoreManagementSystem
             Console.WriteLine($"Customer full name : {Customer.FirstName + Customer.LastName}");
             Console.WriteLine($"Payment : {Payment}");
             Console.WriteLine($"Delivery ID : {Delivery.DeliveryId}");
+            Console.WriteLine($"Delivery Company : {Delivery.Company}");
+            Console.WriteLine($"Expected delivery date : {Delivery.DeliveringDate}");
             Console.WriteLine($"Total price of the order : {totalPrice}");
             Console.WriteLine($"Ordered products : {orderedProducts}");
         }

@@ -23,12 +23,12 @@ namespace OnlineStoreManagementSystem.Person
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="ElementNotRegisteredException"></exception>
-        public Account? this[string id]
+        public Account? this[string accountId]
         {
             get
             {
                 // Verify if the id is not registered
-                if (!(Accounts.Any(a => a.AccountId == id)))
+                if (!(Accounts.Any(a => a.AccountId == accountId)))
                 {
                     throw new ElementNotRegisteredException();
                 }
@@ -36,7 +36,7 @@ namespace OnlineStoreManagementSystem.Person
                 // Find the element by the id and return
                 foreach (Account account in Accounts)
                 {
-                    if (account.AccountId == id)
+                    if (account.AccountId == accountId)
                     {
                         return account;
                     }
@@ -67,54 +67,54 @@ namespace OnlineStoreManagementSystem.Person
         #region List managers
 
         /// <summary>
-        /// Add an admin to the list « admins ». Admins will be distinguished by Email.
+        /// Add an account to the list « accounts ». Acccounts will be distinguished by Account ID (email).
         /// </summary>
-        /// <param name="admin"></param>
+        /// <param name="account"></param>
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
-        public void Add(Admin admin)
+        public void Add(Account account)
         {
             // Verify if the product ID already exists in the list
-            if (Admins.Any(a => a.Email == admin.Email))
+            if (Accounts.Any(a => a.AccountId == account.AccountId))
             {
                 throw new ElementAlreadyRegisteredException();
             }
 
-            Admins.Add(admin);
-            Console.WriteLine($"Admin was successfully added");
+            Accounts.Add(account);
+            Console.WriteLine($"Account was successfully added");
         }
 
         /// <summary>
-        /// Remove an admin from the list « admins ». 
+        /// Remove an account from the list « accounts ». 
         /// </summary>
-        /// <param name="admin"></param>
+        /// <param name="account"></param>
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
-        public void Remove(Admin admin)
+        public void Remove(Account account)
         {
             // Verify if the ID does not existe in the list
-            if (!(Admins.Any(a => a.Email == admin.Email)))
+            if (!(Accounts.Any(a => a.AccountId == account.AccountId)))
             {
                 throw new ElementNotRegisteredException();
             }
 
-            Admins.RemoveAll(a => a.Email == admin.Email);
-            Console.WriteLine($"Admin [{admin.Email}] was successfully removed");
+            Accounts.RemoveAll(a => a.AccountId == account.AccountId);
+            Console.WriteLine($"Account [{account.AccountId}] was successfully removed");
         }
 
         /// <summary>
-        /// Remove an admin from the list « admins ».
+        /// Remove an account from the list « accounts ».
         /// </summary>
-        /// <param name="email"></param>
+        /// <param name="account"></param>
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
-        public void Remove(string email)
+        public void Remove(string accountId)
         {
             // Verify if the ID does not existe in the list
-            if (!(Admins.Any(a => a.Email == email)))
+            if (!(Accounts.Any(a => a.AccountId == accountId)))
             {
                 throw new ElementNotRegisteredException();
             }
 
-            Admins.Remove(this[email]);
-            Console.WriteLine($"Admin [{email}] was successfully removed");
+            Accounts.Remove(this[accountId]);
+            Console.WriteLine($"Account [{accountId}] was successfully removed");
         }
 
         /// <summary>
@@ -123,7 +123,8 @@ namespace OnlineStoreManagementSystem.Person
         /// <returns></returns>
         public int Count()
         {
-            return Admins.Count();
+            if(Accounts is null) return 0;
+            return Accounts.Count();
         }
         #endregion
     }

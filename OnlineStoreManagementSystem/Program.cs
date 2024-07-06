@@ -56,9 +56,9 @@ Tool.AddLine();
 #region Customer
 
 // Create instances with constructors
-Customer c1 = new Customer("Mickey", "Mouse", "123 Disney Lane");
-Customer c2 = new Customer("Donald", "Duck", "456 Quack Street");
-Customer c3 = new Customer("Goofy", "Goof", "789 Silly Circle");
+Customer c1 = new Customer("Mickey", "Mouse", "123 Disney Lane", "mickey.mouse@disney.com");
+Customer c2 = new Customer("Donald", "Duck", "456 Quack Street", "donald.duck@disney.com");
+Customer c3 = new Customer("Goofy", "Goof", "789 Silly Circle", "goofy.goof@disney.com");
 
 c1.ShowContents();
 c2.ShowContents();
@@ -72,11 +72,27 @@ Tool.AddLine();
 
 ShoppingCart cart = new ShoppingCart();
 
+Console.WriteLine($"Count in cart {cart.Count()}");
+cart.Add(p1);
+cart.Add(p2);
+cart.Add(p3);
+cart.Add(p4);
+cart.Add(p5);
+cart.Add(p6);
+Console.WriteLine($"Count in cart {cart.Count()}");
 
-#endregion
+cart.Add(p1);
 
-#region Order
+Console.WriteLine($"There are {cart.ProductsInCart[p1]} {p1.Name} in the cart");
 
+cart.Remove(p3);
+Console.WriteLine($"Count in cart {cart.Count()}");
+
+//cart.ChangeQuantity(p1);
+//Console.WriteLine($"There are {cart.ProductsInCart[p1]} {p1.Name} in the cart");
+
+//// 0 Test OK
+//cart.ChangeQuantity(p1);
 
 #endregion
 
@@ -139,12 +155,12 @@ customerManager.Add(c3);
 //customerManager.Add(c3);
 
 // Count the number of registered customers
-Console.WriteLine($"There are {customerManager.Count} elements in the list");
+Console.WriteLine($"There are {customerManager.Count()} elements in the list");
 
 // Remove products
 customerManager.Remove(c2.CustomerId);
 customerManager.Remove(c3);
-Console.WriteLine($"There are {customerManager.Count} elements in the list");
+Console.WriteLine($"There are {customerManager.Count()} elements in the list");
 
 // Error test OK
 //customerManager.Remove(c2.CustomerId);
@@ -158,6 +174,44 @@ Console.WriteLine($"P1's name : {customerManager[c1.CustomerId].FirstName}");
 
 // Product factory
 //customerManager.AddProductStep1();
+
+#endregion
+
+#region Order Manager
+
+OrderManager orderManager = new OrderManager();
+Order o1 = new Order(cart.ProductsInCart, c1);
+Order o2 = new Order(cart.ProductsInCart, c2, EnumPayment.CreditCard);
+Order o3 = new Order(cart.ProductsInCart, c3, EnumPayment.Paypal);
+
+orderManager.Add(o1);
+orderManager.Add(o2);
+orderManager.Add(o3);
+
+// Error test OK
+//orderManager.Add(o3);
+
+orderManager.Count();
+
+orderManager.Remove(o2);
+orderManager.Remove(o3.OrderId);
+
+// Error test OK
+//orderManager.Remove(o3);
+//orderManager.Remove(o3.OrderId);
+
+orderManager.Count();
+
+orderManager.PaymentProceeded += (order) =>
+{
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine($"The payment n° {order.OrderId} was successfully proceeded");
+    Console.ResetColor();
+};
+
+orderManager.ChoosePayment(o1.OrderId);
+await orderManager.Pay(o1.OrderId);
+o1.ShowContents();
 
 #endregion
 

@@ -123,6 +123,8 @@ namespace OnlineStoreManagementSystem.Person
         /// <returns></returns>
         public int Count()
         {
+            if (Admins is null) return 0;
+
             return Admins.Count();
         }
         #endregion

@@ -119,7 +119,9 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public int Count()
         {
-            return Customers.Count;
+            if(Customers is null) return 0;
+
+            return Customers.Count();
         }
         #endregion
 

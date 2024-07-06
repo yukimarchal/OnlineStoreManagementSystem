@@ -12,6 +12,9 @@ namespace OnlineStoreManagementSystem
         {
             // Redirect the user to the credit card payment
             // If the payment is succeeded, return true
+            Thread.Sleep(3000);
+
+            //Console.WriteLine("The payment was successfully proceeded");
             return true;
         }
     }

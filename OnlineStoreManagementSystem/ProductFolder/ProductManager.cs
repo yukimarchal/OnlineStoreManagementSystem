@@ -133,6 +133,7 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public int Count()
         {
+            if (Products is null) return 0;
             return Products.Count();
         }
         #endregion
