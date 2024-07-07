@@ -51,7 +51,7 @@ namespace OnlineStoreManagementSystem
         }
 
         #region Methods
-        public bool Login(List<Account> accounts)
+        public Account? Login(List<Account> accounts)
         {
             Console.Write("Email : ");
             string email = Console.ReadLine();
@@ -72,11 +72,11 @@ namespace OnlineStoreManagementSystem
                 {
                     if (Pass == account.Pass)
                     {
-                        return true;
+                        return account;
                     }
                 }
             }
-            return false;
+            return null;
         }
 
         #endregion

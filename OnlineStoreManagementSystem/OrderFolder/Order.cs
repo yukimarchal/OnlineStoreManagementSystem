@@ -176,11 +176,21 @@ namespace OnlineStoreManagementSystem
 
             Console.WriteLine($"Order ID : {OrderId}");
             Console.WriteLine($"Ordered date : {OrderedDate}");
-            Console.WriteLine($"Customer full name : {Customer.FirstName + Customer.LastName}");
+            Console.WriteLine($"Customer full name : {Customer.FirstName} {Customer.LastName}");
             Console.WriteLine($"Payment : {Payment}");
-            Console.WriteLine($"Delivery ID : {Delivery.DeliveryId}");
-            Console.WriteLine($"Delivery Company : {Delivery.Company}");
-            Console.WriteLine($"Expected delivery date : {Delivery.DeliveringDate}");
+
+			if (PaymentSucceeded)
+			{
+				Console.WriteLine($"Payment status : Successfully proceeded");
+				Console.WriteLine($"Delivery ID : {Delivery.DeliveryId}");
+				Console.WriteLine($"Delivery Company : {Delivery.Company}");
+
+				if (Delivery.DeliveredDate is null) Console.WriteLine($"Expected delivery date : {Delivery.DeliveringDate}");
+				else Console.WriteLine($"Delivered date : {Delivery.DeliveredDate}");
+			}
+
+			else Console.WriteLine($"Payment status : Pending");
+
             Console.WriteLine($"Total price of the order : {totalPrice}");
             Console.WriteLine($"Ordered products : {orderedProducts}");
         }

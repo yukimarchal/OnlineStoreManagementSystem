@@ -43,7 +43,7 @@ namespace OnlineStoreManagementSystem
 
         #region Methods
 
-        public bool Login(List<Admin> admins)
+        public Admin? Login(List<Admin> admins)
         {
             Console.Write("Email : ");
             string email = Console.ReadLine();
@@ -64,11 +64,11 @@ namespace OnlineStoreManagementSystem
                 {
                     if(Pass == admin.Pass)
                     {
-                        return true;
+                        return admin;
                     }
                 }
             }
-            return false;
+            return null;
         }
 
         #endregion

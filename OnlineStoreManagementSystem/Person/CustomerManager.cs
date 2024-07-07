@@ -130,13 +130,26 @@ namespace OnlineStoreManagementSystem
         public static Customer AddCustomer()
         {
             // Create a new instance
-            // Customer customer = new Customer();
-            Customer customer = AddCustomer();
+            Customer customer = new Customer();
 
             // Assign fields
             customer.FirstName = AskFirstName();
             customer.LastName = AskLastName();
             customer.Address = AskAddress();
+
+            return customer;
+        }
+
+        public static Customer AddCustomer(string email)
+        {
+            // Create a new instance
+            Customer customer = new Customer();
+
+            // Assign fields
+            customer.FirstName = AskFirstName();
+            customer.LastName = AskLastName();
+            customer.Address = AskAddress();
+            customer.Email = email;
 
             return customer;
         }

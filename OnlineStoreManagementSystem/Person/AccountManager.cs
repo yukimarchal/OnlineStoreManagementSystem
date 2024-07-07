@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ToolBox;
+using static ToolBox.Delegates;
 
 namespace OnlineStoreManagementSystem.Person
 {
@@ -46,7 +47,28 @@ namespace OnlineStoreManagementSystem.Person
             }
         }
 
-        public void AddAccount()
+        public bool LoginOrCreate(ref Account currentAccount)
+        {
+            bool isLoggedIn;
+            MessageDelegate message = () =>
+            {
+                Console.WriteLine("Are you already a custome of ours?");
+                Console.WriteLine("1 : YES. I want to log in");
+                Console.WriteLine("2 : NO. I want to creat an account");
+            };
+            Tool.TryGetIntLimitedRange(message, 1, 2, out int result);
+
+            if (result == 1)  currentAccount = currentAccount.Login(this.Accounts);
+            else
+            {
+                currentAccount = AddAccount();
+            }
+
+            isLoggedIn = true;
+            return isLoggedIn;
+        }
+
+        public Account AddAccount()
         {
             Console.Write("Email : ");
             string email = Console.ReadLine();
@@ -62,6 +84,7 @@ namespace OnlineStoreManagementSystem.Person
             string pass = Console.ReadLine();
 
             Accounts.Add(new Account(pass, CustomerManager.AddCustomer()));
+            return this[email];
         }
 
         #region List managers

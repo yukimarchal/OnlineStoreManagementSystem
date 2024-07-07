@@ -157,6 +157,12 @@ namespace ToolBox
 
         #endregion
 
+        public static void ReturnToMenu()
+        {
+            Console.WriteLine("Press any key to go back to the menu");
+            Console.ReadLine();
+        }
+
         #endregion
     }
 }
