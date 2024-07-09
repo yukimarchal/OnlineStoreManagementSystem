@@ -295,22 +295,6 @@ accountManager.Add(account);
 
 #endregion
 
-//#region Shopping cart
-
-//account.Cart.Add(c1);
-//account.Cart.Add(f1);
-//account.Cart.Add(p1);
-
-//#endregion
-
-//#region Order and delivery
-
-//Delivery delivery = new Delivery(EnumDeliveryCompany.BPost, DateTime.Now.AddDays(-5), DateTime.Now.AddDays(-5));
-//Order order = new Order(DateTime.Now.AddDays(-10), account.Cart.ProductsInCart, customer, EnumPayment.BankContact, delivery, true);
-//account.OManager.Add(order);
-
-//#endregion
-
 #region Home
 
 while (wantStay)
@@ -337,8 +321,6 @@ while (wantStay)
     {
         case 1:
             // Show all the products
-
-            // Todo 15th element is not shown
             productManager.ShowAllProducts();
 
             // Verify if the user is already logged in
