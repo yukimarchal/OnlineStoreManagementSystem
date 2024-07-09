@@ -73,6 +73,23 @@ namespace OnlineStoreManagementSystem
 
         #region List managers
 
+        public void ShowContents()
+        {
+            List<Product> temp = ProductsInCart.Keys.ToList();
+            temp.Sort();
+
+            foreach (Product product in temp)
+            {
+                Console.WriteLine($"[{temp.IndexOf(product) + 1}]");
+
+                if (product is Clothes clothes) clothes.ShowContents();
+                if (product is Food food) food.ShowContents();
+                if (product is PersonalCare personalCare) personalCare.ShowContents();
+
+                Tool.AddLine();
+            }
+        }
+
         /// <summary>
         /// Add a product to the list « ProductsInCart ». Products will be distinguished by ID.
         /// </summary>
@@ -195,6 +212,57 @@ namespace OnlineStoreManagementSystem
         }
 
         #endregion
+
+        public bool AddOrToCart(List<Product> Products)
+        {
+            bool wantSeeCart = false;
+            MessageDelegate message = () =>
+            {
+                Console.WriteLine("To go to cart, push 0");
+                Console.WriteLine("To add a product in the cart, choose by number");
+            };
+
+            Tool.TryGetIntLimitedRange(message, 0, Products.Count(), out int result);
+
+            if (result == 0)
+            {
+                wantSeeCart = true;
+                return wantSeeCart;
+            }
+            else
+            {
+                Add(Products[result -1]);
+                return wantSeeCart;
+            }
+        }
+
+        public bool ManageCartOrPay()
+        {
+            bool wantPay = false;
+
+            MessageDelegate message = () =>
+            {
+                Console.WriteLine("To proceed a payment, push 0");
+                Console.WriteLine("To manage the quantity of a product, choose by number");
+            };
+
+            Tool.TryGetIntLimitedRange(message, 0, ProductsInCart.Count(), out int result);
+
+            if (result == 0)
+            {
+                wantPay = true;
+                return wantPay;
+            }
+            else
+            {
+                List<Product> temp = ProductsInCart.Keys.ToList();
+                temp.Sort();
+
+                ChangeQuantity(temp[result - 1].ProductId);
+            }
+
+            return wantPay;
+        }
 
         #endregion
     }

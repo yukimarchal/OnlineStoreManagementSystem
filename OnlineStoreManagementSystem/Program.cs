@@ -308,7 +308,7 @@ while (wantStay)
 
             // Verify if the user is already logged in
             // If logged in, the user adds a product to cart or go see the cart
-            if(isLoggedIn) wantSeeCart = cart.AddOrToCart(isLoggedIn);
+            if(isLoggedIn) wantSeeCart = cart.AddOrToCart(productManager.Products);
 
             // If NOT logged in, ask the user to log in or create an account
             else
@@ -320,6 +320,7 @@ while (wantStay)
             // If the user wants to see the cart, the user can either manage the products in the cart or proceed a payment
             if (wantSeeCart) 
             {
+                cart.ShowContents();
                 wantPay = cart.ManageCartOrPay();
 
                 if (wantPay)

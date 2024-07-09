@@ -46,6 +46,59 @@ namespace OnlineStoreManagementSystem
             }
         }
 
+        public void ShowAllOrders()
+        {
+            foreach (Order order in Orders)
+            {
+                double totalPrice = 0;
+                //string orderedProducts = "";
+                // TODO relire
+                string orderedProducts = string.Join(", ", order.OrderedProducts.Select(p => p.Key.Name));
+                foreach (Product product in order.OrderedProducts.Keys)
+                {
+                    totalPrice += product.Price * order.OrderedProducts[product];
+                    //orderedProducts += ($"{product.Name}, ");
+                }
+
+                Console.WriteLine($"[{Orders.IndexOf(order) + 1}]");
+
+                if (!order.PaymentSucceeded)
+                {
+                    Console.WriteLine($"Ordered on {order.OrderedDate}");
+                    Console.WriteLine($"Total price of the order : {totalPrice}");
+                    Console.WriteLine($"Payment stauts : Pending");
+                    return;
+                }
+
+                if(order.Delivery.DeliveredDate != null)
+                {
+                    Console.WriteLine($"Delivered on {order.Delivery.DeliveredDate}");
+                    Console.WriteLine($"Total price of the order : {totalPrice}");
+                    Console.WriteLine($"Payment status : Successfully proceeded");
+                    return;
+                }
+
+                else
+                {
+                    Console.WriteLine($"Delivery expected on {order.Delivery.DeliveringDate}");
+                    Console.WriteLine($"Total price of the order : {totalPrice}");
+                    Console.WriteLine($"Payment status : Successfully proceeded");
+                }
+            }
+        }
+
+        public Order AddOrder(Account currentAccount)
+        {
+            Order order = new Order();
+
+            order.OrderedDate = DateTime.Now;
+            order.OrderedProducts = currentAccount.Cart.ProductsInCart;
+            order.Customer = currentAccount.Customer;
+
+            Orders.Add(order);
+            return order;
+        }
+
         public Delivery CreateDelivery(Guid orderId)
         {
             // Message to choose the delivery company

@@ -74,6 +74,21 @@ namespace OnlineStoreManagementSystem
 
         #region List managers
 
+        public void ShowAllProducts()
+        {
+
+            foreach (Product product in Products)
+            {
+                Console.WriteLine($"[{Products.IndexOf(product) + 1}]");
+
+                if (product is Clothes clothes) clothes.ShowContents();
+                if (product is Food food) food.ShowContents();
+                if (product is PersonalCare personalCare) personalCare.ShowContents();
+
+                Tool.AddLine();
+            }
+        }
+
         /// <summary>
         /// Add a product to the list « products ». Products will be distinguished by ID.
         /// </summary>
