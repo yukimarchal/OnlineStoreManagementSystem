@@ -397,33 +397,40 @@ while (wantStay)
             }
             else
             {
-                Console.WriteLine("Please log in to check your order or delivery");
+                Console.Clear();
                 isLoggedIn = accountManager.LoginOrCreate(ref currentAccount);
             }
 
             Tool.ReturnToMenu();
             break;
         case 3:
-            if (isLoggedIn)
+            Console.Clear();
+            if (currentAdmin != null)
             {
                 message = () =>
                 {
+                    Tool.AddTitle("ADMIN MENU");
                     Console.WriteLine("What would you like to do?");
                     Console.WriteLine("1 : Add a product");
                     Console.WriteLine("2 : Remove a product");
+                    Console.WriteLine();
+                    Console.Write("Your choice : ");
                 };
                 Tool.TryGetIntLimitedRange(message, 1, 2, out result);
 
                 switch(result)
                 {
                     case 1: 
-                        productManager.AddProductStep1();
+                        productManager.Add(productManager.AddProductStep1());
                         break;
                     case 2:
                         message = () =>
                         {
-                            Console.WriteLine("Which product would you like to delete? Choose by number");
                             productManager.ShowAllProducts();
+
+                            Console.WriteLine("Which product would you like to delete? Choose by number");
+                            Console.WriteLine();
+                            Console.Write("Your choice : ");
                         };
 
                         Tool.TryGetIntLimitedRange(message, 1, productManager.Count(), out result);
@@ -434,6 +441,9 @@ while (wantStay)
             }
             else
             {
+                Console.WriteLine("You are not logged in for the moment as Admin.");
+                Console.WriteLine("If you want to manage products, please log in.");
+                Thread.Sleep(5000);
                 currentAdmin = Admin.Login(adminManager.Admins);
                 isLoggedIn = true;
             }

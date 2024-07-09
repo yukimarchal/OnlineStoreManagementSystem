@@ -15,6 +15,7 @@ namespace ToolBox
         /// <returns></returns>
         public static EnumPersonalCare AskPersonalCareCategory()
         {
+            Console.Clear();
             // To send as parameter, affect message to show before the user input
             MessageDelegate message = () =>
             {
@@ -29,6 +30,8 @@ namespace ToolBox
                 Console.WriteLine("7 : Body care");
                 Console.WriteLine("8 : Nail care");
                 Console.WriteLine("9 : Oral care");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
 
             // Ask for the choice. Verify the choice with the condition. It continues to ask till obtaining the good choice. In case of escape, it stops registering

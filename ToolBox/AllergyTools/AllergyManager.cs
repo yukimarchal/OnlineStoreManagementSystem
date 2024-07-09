@@ -20,7 +20,8 @@ namespace ToolBox
             // To send as parameter, affect message to show before the user input
             MessageDelegate message = () =>
             {
-                Console.WriteLine("Add allergies by numbers. To finish, type Esc key");
+                Console.Clear();
+                Console.WriteLine("Add allergies by numbers. To finish, type [q]");
                 Console.WriteLine();
                 Console.WriteLine("1 : Milk");
                 Console.WriteLine("2 : Eggs");
@@ -45,6 +46,8 @@ namespace ToolBox
                 Console.WriteLine("21 : Mustard");
                 Console.WriteLine("22 : Spices");
                 Console.WriteLine("23 : None");
+                Console.WriteLine();
+                Console.WriteLine("Your choice : ");
             };
 
             // Create a table and ask users to input as much as enumcolors they want

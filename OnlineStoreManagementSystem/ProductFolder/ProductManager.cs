@@ -100,6 +100,7 @@ namespace OnlineStoreManagementSystem
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
         public void Add(Product product)
         {
+            Console.Clear();
             // Verify if the product ID already exists in the list
             if(Products.Any(p => p.ProductId == product.ProductId))
             {
@@ -107,8 +108,9 @@ namespace OnlineStoreManagementSystem
             }
 
             Products.Add(product);
-            Console.WriteLine($"Product was successfully added");
+            Tool.ShowMessageColor("The product was successfully added", ConsoleColor.Green);
             product.ShowContents();
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -160,12 +162,18 @@ namespace OnlineStoreManagementSystem
 
         public Product AddProductStep1()
         {
+            Console.Clear();
+
             MessageDelegate message = () =>
             {
+                Tool.AddTitle("NEW PRODUCT");
                 Console.WriteLine("Choose product type by a number");
+                Console.WriteLine();
                 Console.WriteLine("1 : Clothes");
                 Console.WriteLine("2 : Food");
                 Console.WriteLine("3 : Personal care");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
 
             Product? product = null;
@@ -188,6 +196,8 @@ namespace OnlineStoreManagementSystem
 
         public T AddProductStep2<T>() where T : Product, new()
         {
+            Console.Clear();
+            Tool.AddTitle("NEW PRODUCT");
             // Create new T instance
             T product = new T();
             
@@ -224,7 +234,9 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public string AskName()
         {
+            Console.Clear();
             Console.WriteLine("What is the name of the product?");
+            Console.Write("Name : ");
             string name = Console.ReadLine();
             return name;
         }
@@ -235,9 +247,11 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public double AskPrice()
         {
+            Console.Clear();
             MessageDelegate message = () => 
             {
                 Console.WriteLine("How much is it?");
+                Console.Write("Price : ");
             };
 
             double price = Tool.GetDouble(message);

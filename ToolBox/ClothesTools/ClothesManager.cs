@@ -17,6 +17,7 @@ namespace ToolBox
         /// <returns></returns>
         public static EnumClothes AskClothesCategory()
         {
+            Console.Clear();
             // To send as parameter, affect message to show before the user input
             MessageDelegate message = () =>
             {
@@ -30,6 +31,8 @@ namespace ToolBox
                 Console.WriteLine("6 : Two-pieces");
                 Console.WriteLine("7 : Sweater");
                 Console.WriteLine("8 : Hoodie");
+                Console.WriteLine();
+                Console.Write("Your choice : " );
             };
 
             // Ask for the choice. Verify the choice with the condition. It continues to ask till obtaining the good choice. In case of escape, it stops registering

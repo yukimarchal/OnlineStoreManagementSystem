@@ -20,7 +20,8 @@ namespace ToolBox
             // To send as parameter, affect message to show before the user input
             MessageDelegate message = () =>
             {
-                Console.WriteLine("Add colors by numbers. To finish, type Esc key");
+                Console.Clear();
+                Console.WriteLine("Add colors by numbers. To finish, type [q]");
                 Console.WriteLine();
                 Console.WriteLine("1 : Red");
                 Console.WriteLine("2 : Yellow");
@@ -36,21 +37,23 @@ namespace ToolBox
                 Console.WriteLine("12 : Gray");
                 Console.WriteLine("13 : Pink");
                 Console.WriteLine("14 : Beige");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
 
             // Create a table and ask users to input as much as enumcolors they want
             List<EnumColor> enumcolors = new List<EnumColor>();
             int result;
-            bool isEscape;
+            bool wantQuit;
 
             do
             {
                 // Ask for the choice. Verify the choice with the condition. It continues to ask till obtaining the good choice. In case of escape, it stops registering
-                isEscape = Tool.TryGetIntLimitedRange(message, 1, 14, out result);
+                wantQuit = Tool.TryGetIntLimitedRange(message, 1, 14, out result);
 
-                if (!isEscape) enumcolors.Add((EnumColor)result);
+                if (!wantQuit) enumcolors.Add((EnumColor)result);
 
-            } while (!isEscape);
+            } while (!wantQuit);
 
             return enumcolors;
         }

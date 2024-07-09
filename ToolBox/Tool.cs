@@ -26,21 +26,21 @@ namespace ToolBox
         {
             message();
             result = -1;
-            ConsoleKeyInfo choice = Console.ReadKey();
+            string choice = Console.ReadLine();
 
-            if (choice.Key == ConsoleKey.Escape)
+            if (choice == "q" || choice == "Q")
             {
                 return true;
             }
 
             try
             {
-                if (int.Parse(choice.KeyChar.ToString()) < start || end < int.Parse(choice.KeyChar.ToString()))
+                if (int.Parse(choice) < start || end < int.Parse(choice))
                 {
                     throw new Exception();
                 }
 
-                result = int.Parse(choice.KeyChar.ToString());
+                result = int.Parse(choice);
                 return false;
             }
 
@@ -60,11 +60,10 @@ namespace ToolBox
             result = -1;
             string choice = Console.ReadLine();
 
-            //if (choice == ConsoleKey.Escape)
-            //{
-            //    Console.WriteLine();
-            //    return true;
-            //}
+            if (choice == "q" || choice == "Q")
+            {
+                return true;
+            }
 
             try
             {
