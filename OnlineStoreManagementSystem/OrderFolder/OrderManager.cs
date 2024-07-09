@@ -48,11 +48,12 @@ namespace OnlineStoreManagementSystem
 
         public void ShowAllOrders()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+
             foreach (Order order in Orders)
             {
                 double totalPrice = 0;
                 //string orderedProducts = "";
-                // TODO relire
                 string orderedProducts = string.Join(", ", order.OrderedProducts.Select(p => p.Key.Name));
                 foreach (Product product in order.OrderedProducts.Keys)
                 {
@@ -85,6 +86,8 @@ namespace OnlineStoreManagementSystem
                     Console.WriteLine($"Payment status : Successfully proceeded");
                 }
             }
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public Order AddOrder(Account currentAccount)

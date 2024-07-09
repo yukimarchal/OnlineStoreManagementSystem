@@ -51,15 +51,17 @@ namespace OnlineStoreManagementSystem
         }
 
         #region Methods
-        public Account? Login(List<Account> accounts)
+        public static Account? Login(List<Account> accounts)
         {
+            Console.Clear();
+            Tool.AddTitle("LOGIN");
             Console.Write("Email : ");
             string email = Console.ReadLine();
 
             // Verify if the email does not exists in the list
             if ((!accounts.Any(a => a.AccountId == email)))
             {
-                Tool.ShowErrorMessage("Email not registered");
+                Tool.ShowMessageRed("Email not registered.");
                 Login(accounts);
             }
 
@@ -70,9 +72,15 @@ namespace OnlineStoreManagementSystem
             {
                 if (account.AccountId == email)
                 {
-                    if (Pass == account.Pass)
+                    if (pass == account.Pass)
                     {
+                        Tool.ShowMessageColor("You are successufully logged in.", ConsoleColor.Green);
+                        Thread.Sleep(3000);
                         return account;
+                    }
+                    else
+                    {
+                        Tool.ShowMessageRed("The password is not correct.");
                     }
                 }
             }

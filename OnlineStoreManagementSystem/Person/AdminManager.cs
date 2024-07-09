@@ -54,7 +54,7 @@ namespace OnlineStoreManagementSystem.Person
             // Verify if the product ID already exists in the list
             if (Admins.Any(a => a.Email == email))
             {
-                Tool.ShowErrorMessage("Email already registered");
+                Tool.ShowMessageRed("Email already registered");
                 AddAdmin();
             }
 
@@ -80,7 +80,7 @@ namespace OnlineStoreManagementSystem.Person
             }
 
             Admins.Add(admin);
-            Console.WriteLine($"Admin was successfully added");
+            //Console.WriteLine($"Admin was successfully added");
         }
 
         /// <summary>

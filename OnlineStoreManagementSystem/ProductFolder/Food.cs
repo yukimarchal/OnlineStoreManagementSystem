@@ -49,17 +49,12 @@ namespace OnlineStoreManagementSystem
         public override void ShowContents()
         {
             // Make a string with all the registered allergies
-            string allergyList = "";
-            foreach (EnumAllergy allergy in Allergies)
-            {
-                allergyList += allergy.ToString();
-                allergyList += ", ";
-            }
+            string allergyList = string.Join(", ", Allergies);
 
             // Show all the contents of this object
             Console.WriteLine($"ID : {ProductId}");
             Console.WriteLine($"Name : {Name}");
-            Console.WriteLine($"Price : {Price}");
+            Console.WriteLine($"Price : {Price}€");
             Console.WriteLine($"Alergies : {allergyList}");
         }
 

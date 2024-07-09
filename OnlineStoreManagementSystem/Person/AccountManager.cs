@@ -49,38 +49,60 @@ namespace OnlineStoreManagementSystem.Person
 
         public bool LoginOrCreate(ref Account currentAccount)
         {
-            bool isLoggedIn;
+            bool isLoggedIn = false;
             MessageDelegate message = () =>
             {
-                Console.WriteLine("Are you already a custome of ours?");
+                Console.WriteLine("Are you already a customer of ours?");
+                Console.WriteLine();
                 Console.WriteLine("1 : YES. I want to log in");
                 Console.WriteLine("2 : NO. I want to creat an account");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
             Tool.TryGetIntLimitedRange(message, 1, 2, out int result);
 
-            if (result == 1)  currentAccount = currentAccount.Login(this.Accounts);
+            if (result == 1)
+            {
+                currentAccount = Account.Login(this.Accounts);
+                if(currentAccount != null)
+                {
+                    isLoggedIn = true;
+                }
+            }
             else
             {
                 currentAccount = AddAccount();
+                isLoggedIn = true;
             }
 
-            isLoggedIn = true;
+            Console.Clear();
             return isLoggedIn;
         }
 
         public Account AddAccount()
         {
-            Console.Write("Email : ");
+            Console.Clear();
+            MessageDelegate message = () =>
+            {
+                Console.Write("Email : ");
+
+            };
+
+            Tool.ShowMessageColor(message, ConsoleColor.Blue);
             string email = Console.ReadLine();
 
             // Verify if the account ID (email) already exists in the list
             if (Accounts.Any(a => a.AccountId == email))
             {
-                Tool.ShowErrorMessage("Email already registered");
+                Tool.ShowMessageRed("Email already registered");
                 AddAccount();
             }
 
-            Console.Write("Pass : ");
+            message = () =>
+            {
+                Console.Write("Pass : ");
+
+            };
             string pass = Console.ReadLine();
 
             Accounts.Add(new Account(pass, CustomerManager.AddCustomer()));
@@ -103,7 +125,7 @@ namespace OnlineStoreManagementSystem.Person
             }
 
             Accounts.Add(account);
-            Console.WriteLine($"Account was successfully added");
+            //Console.WriteLine($"Account was successfully added");
         }
 
         /// <summary>

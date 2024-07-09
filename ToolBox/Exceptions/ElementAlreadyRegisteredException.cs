@@ -10,7 +10,7 @@ namespace ToolBox
     {
         public ElementAlreadyRegisteredException()
         {
-            Tool.ShowErrorMessage("The element is already registered");
+            Tool.ShowMessageRed("The element is already registered");
         }
     }
 }

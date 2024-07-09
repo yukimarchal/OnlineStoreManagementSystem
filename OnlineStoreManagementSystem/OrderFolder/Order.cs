@@ -162,9 +162,11 @@ namespace OnlineStoreManagementSystem
 
         public void ShowContents()
         {
+			Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+
             double totalPrice = 0;
             //string orderedProducts = "";
-			// TODO relire
             string orderedProducts = string.Join(", ", OrderedProducts.Select(p => p.Key.Name));
             foreach (Product product in OrderedProducts.Keys)
             {
@@ -193,6 +195,8 @@ namespace OnlineStoreManagementSystem
 
             Console.WriteLine($"Total price of the order : {totalPrice}");
             Console.WriteLine($"Ordered products : {orderedProducts}");
+
+			Console.ForegroundColor = default;
         }
 
         #endregion

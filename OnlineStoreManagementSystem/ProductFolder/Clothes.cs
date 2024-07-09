@@ -55,17 +55,12 @@ namespace OnlineStoreManagementSystem
         public override void ShowContents()
         {
             // Make a string with all the registered colors
-            string colorList = "";
-            foreach (EnumColor color in Colors)
-            {
-                colorList += color.ToString();
-                colorList += ", ";
-            }
+            string colorList = string.Join(", ", Colors);
 
             // Show all the contents of this object
             Console.WriteLine($"ID : {ProductId}");
             Console.WriteLine($"Name : {Name}");
-            Console.WriteLine($"Price : {Price}");
+            Console.WriteLine($"Price : {Price}€");
             Console.WriteLine($"Clothes category : {ClothesCategory}");
             Console.WriteLine($"Colors : {colorList}");
         }

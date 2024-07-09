@@ -47,7 +47,7 @@ namespace ToolBox
             // Ask the user to re-enter input
             catch (Exception)
             {
-                ShowErrorMessage("Invalid Input");
+                ShowMessageRed("Invalid Input");
 
                 TryGetIntLimitedRange(message, start, end, out result);
             }
@@ -74,7 +74,7 @@ namespace ToolBox
             // Ask the user to re-enter input
             catch (Exception)
             {
-                ShowErrorMessage("Invalid Input");
+                ShowMessageRed("Invalid Input");
 
                 TryGetIntLimitedRange(message, out result);
             }
@@ -96,7 +96,7 @@ namespace ToolBox
             // Ask the user to re-enter input
             catch (Exception)
             {
-                ShowErrorMessage("Invalid Input");
+                ShowMessageRed("Invalid Input");
 
                 TryGetIntLimitedRange(message, out result);
             }
@@ -114,7 +114,7 @@ namespace ToolBox
             }
             catch (Exception)
             {
-                ShowErrorMessage("Invalid entry");
+                ShowMessageRed("Invalid entry");
                 GetDouble(message);
             }
             return 0;
@@ -124,11 +124,25 @@ namespace ToolBox
 
         #region Console message
 
-        public static void ShowErrorMessage(string errorMessage)
+        public static void ShowMessageColor(string message, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public static void ShowMessageColor(MessageDelegate message, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            message();
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public static void ShowMessageRed(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(errorMessage);
-            Console.ForegroundColor = default;
+            Console.WriteLine(message);
+            Console.ForegroundColor = ConsoleColor.White;
 
             Thread.Sleep(3000);
             Console.Clear();
@@ -143,15 +157,12 @@ namespace ToolBox
         public static void AddReturn()
         {
             Console.WriteLine(Return);
-            Console.WriteLine(Return);
         }
         public static void AddTitle(string Title)
         {
-            Tool.AddReturn();
             Console.WriteLine(Line);
             Console.WriteLine(Title);
             Console.WriteLine(Line);
-            Tool.AddReturn();
             AddReturn();
         }
 

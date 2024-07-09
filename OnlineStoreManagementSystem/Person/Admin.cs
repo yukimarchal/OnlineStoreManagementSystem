@@ -43,7 +43,7 @@ namespace OnlineStoreManagementSystem
 
         #region Methods
 
-        public Admin? Login(List<Admin> admins)
+        public static Admin? Login(List<Admin> admins)
         {
             Console.Write("Email : ");
             string email = Console.ReadLine();
@@ -51,7 +51,7 @@ namespace OnlineStoreManagementSystem
             // Verify if the email does not exists in the list
             if ((!admins.Any(a => a.Email == email)))
             {
-                Tool.ShowErrorMessage("Email not registered");
+                Tool.ShowMessageRed("Email not registered");
                 Login(admins);
             }
 
@@ -62,7 +62,7 @@ namespace OnlineStoreManagementSystem
             {
                 if(admin.Email == email)
                 {
-                    if(Pass == admin.Pass)
+                    if(pass == admin.Pass)
                     {
                         return admin;
                     }

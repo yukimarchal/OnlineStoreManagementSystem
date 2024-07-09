@@ -75,6 +75,8 @@ namespace OnlineStoreManagementSystem
 
         public void ShowContents()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+
             List<Product> temp = ProductsInCart.Keys.ToList();
             temp.Sort();
 
@@ -88,6 +90,8 @@ namespace OnlineStoreManagementSystem
 
                 Tool.AddLine();
             }
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         /// <summary>

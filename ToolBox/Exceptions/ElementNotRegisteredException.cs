@@ -10,7 +10,7 @@ namespace ToolBox
     {
         public ElementNotRegisteredException()
         {
-            Tool.ShowErrorMessage("The element is not registered");
+            Tool.ShowMessageRed("The element is not registered");
         }
     }
 }

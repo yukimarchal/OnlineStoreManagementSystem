@@ -1,4 +1,5 @@
-﻿using System.Threading.Channels;
+﻿using System.Text;
+using System.Threading.Channels;
 using OnlineStoreManagementSystem;
 using OnlineStoreManagementSystem.Person;
 using ToolBox;
@@ -222,6 +223,13 @@ using static ToolBox.Delegates;
 
 #endregion
 
+#region Console setting
+
+Console.ForegroundColor = ConsoleColor.White;
+Console.OutputEncoding = Encoding.UTF8;
+
+#endregion
+
 #region Managers and shopping cart
 
 ProductManager productManager = new ProductManager();
@@ -276,6 +284,17 @@ productManager.Add(p5);
 
 #endregion
 
+#region Admin and Account
+
+Admin admin = new Admin("mickey.mouse@disney.com", "1234");
+adminManager.Add(admin);
+
+Customer customer = new Customer("Mickey", "Mouse", "123 Disney Lane", "mickey.mouse@disney.com");
+Account account = new Account("1234", customer);
+accountManager.Add(account);
+
+#endregion
+
 #region Home
 
 bool isLoggedIn = false;
@@ -288,13 +307,19 @@ Order currentOrder = null;
 
 while (wantStay)
 {
+    Console.Clear();
+    Tool.AddTitle("MENU");
+
     // The user choose the action
     MessageDelegate message = () =>
     {
         Console.WriteLine("What would you like to do?");
+        Console.WriteLine();
         Console.WriteLine("1 : Look at our products");
         Console.WriteLine("2 : Check your order and delivery");
         Console.WriteLine("3 : Control products as admin");
+        Console.WriteLine();
+        Console.Write("Your choice : ");
     };
 
     Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
@@ -304,6 +329,8 @@ while (wantStay)
     {
         case 1:
             // Show all the products
+
+            // Todo 15th element is not shown
             productManager.ShowAllProducts();
 
             // Verify if the user is already logged in
@@ -313,7 +340,9 @@ while (wantStay)
             // If NOT logged in, ask the user to log in or create an account
             else
             {
-                Console.WriteLine("Please log in to add a product in the cart");
+                Console.WriteLine();
+                Console.WriteLine("You are not logged in.");
+
                 isLoggedIn = accountManager.LoginOrCreate(ref currentAccount);
             }
 
@@ -330,9 +359,8 @@ while (wantStay)
 
                     orderManager.PaymentProceeded += (order) =>
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"The payment n° {order.OrderId} was successfully proceeded");
-                        Console.ResetColor();
+                        string message = $"The payment n° {order.OrderId} was successfully proceeded";
+                        Tool.ShowMessageColor(message, ConsoleColor.Green);
                     };
 
                     await orderManager.Pay(currentOrder.OrderId);
@@ -394,7 +422,7 @@ while (wantStay)
             }
             else
             {
-                currentAdmin = currentAdmin.Login(adminManager.Admins);
+                currentAdmin = Admin.Login(adminManager.Admins);
                 isLoggedIn = true;
             }
 

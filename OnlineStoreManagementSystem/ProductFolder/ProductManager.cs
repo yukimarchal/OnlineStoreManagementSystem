@@ -76,6 +76,8 @@ namespace OnlineStoreManagementSystem
 
         public void ShowAllProducts()
         {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
 
             foreach (Product product in Products)
             {
@@ -87,6 +89,8 @@ namespace OnlineStoreManagementSystem
 
                 Tool.AddLine();
             }
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         /// <summary>
@@ -104,8 +108,8 @@ namespace OnlineStoreManagementSystem
             }
 
             Products.Add(product);
-            Console.WriteLine($"Product was successfully added");
-            product.ShowContents();
+            //Console.WriteLine($"Product was successfully added");
+            //product.ShowContents();
         }
 
         /// <summary>
