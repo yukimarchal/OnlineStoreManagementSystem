@@ -1,5 +1,7 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Threading.Channels;
+using System.Threading.Tasks;
 using OnlineStoreManagementSystem;
 using OnlineStoreManagementSystem.Person;
 using ToolBox;
@@ -301,7 +303,7 @@ while (wantStay)
 {
     Console.Clear();
 
-    // The user choose the action
+    // Stock the message to show
     MessageDelegate message = () =>
     {
         Tool.AddTitle("MENU");
@@ -314,11 +316,13 @@ while (wantStay)
         Console.Write("Your choice : ");
     };
 
+    // Ask for the answer and convert into valid answer
     Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
 
     // Depending on the answer, the appropriate action will be executed
     switch (result)
     {
+        // Check out the products and shopping cart
         case 1:
             // Show all the products
             productManager.ShowAllProducts();
@@ -327,21 +331,25 @@ while (wantStay)
             // If logged in, the user adds a product to cart or go see the cart
             if(isLoggedIn) wantSeeCart = cart.AddOrToCart(productManager.Products);
 
-            // If NOT logged in, ask the user to log in or create an account
-            else
-            {
-                isLoggedIn = accountManager.LoginOrCreate(ref currentAccount);
-            }
+            // Ask the user to log in or create an account
+            else isLoggedIn = accountManager.LoginOrCreate(ref currentAccount);
 
-            // If the user wants to see the cart, the user can either manage the products in the cart or proceed a payment
+            // Verify if the user wants to see cart
             if (wantSeeCart) 
             {
+                // Show the products in the cart
                 cart.ShowContents();
+
+                // The user chooses either to pay or to change the quantity of the products in the cart
                 if (cart.ProductsInCart.Any()) wantPay = cart.ManageCartOrPay();
 
+                // Verify if the user wants to proceed a payment
                 if (wantPay)
                 {
+                    // Create a new order and assign as current order
                     currentOrder = orderManager.AddOrder(currentAccount);
+
+                    // The user chooses the payment and proceed the payment depending on the chosen method
                     orderManager.ChoosePayment(currentOrder.OrderId);
 
                     orderManager.PaymentProceeded += (order) =>
@@ -359,6 +367,7 @@ while (wantStay)
             Tool.ReturnToMenu();
             break;
 
+        // Check for order history and the delivery status
         case 2:
             if (isLoggedIn)
             {
@@ -367,16 +376,22 @@ while (wantStay)
                 {
                     Tool.AddTitle("ORDERS");
 
+                    // Show all the orders
                     orderManager.ShowAllOrders();
                     
                     Console.WriteLine("Which order would you like to manage? Choose by number");
                     Console.WriteLine();
                     Console.Write("Your choice : ");
                 };
+
+                // Ask for the answer and convert into valid answer
                 Tool.TryGetIntLimitedRange(message, 1, orderManager.Count(), out result);
 
-                orderManager.Orders[result].ShowContents();
+                // Show the detail of the selected order
+                orderManager.Orders[result-1].ShowContents();
             }
+
+            // Ask the user to log in or create an account
             else
             {
                 Console.Clear();
@@ -387,8 +402,11 @@ while (wantStay)
             break;
         case 3:
             Console.Clear();
+
+            // Verify if the user is logged in as admin
             if (currentAdmin != null)
             {
+                // Stock the message to show
                 message = () =>
                 {
                     Tool.AddTitle("ADMIN MENU");
@@ -398,13 +416,18 @@ while (wantStay)
                     Console.WriteLine();
                     Console.Write("Your choice : ");
                 };
+
+                // Ask for the answer and convert into valid answer
                 Tool.TryGetIntLimitedRange(message, 1, 2, out result);
 
                 switch(result)
                 {
+                    // Add a new product. Depending on the selected type, different properties will be asked
                     case 1: 
                         productManager.Add(productManager.AddProductStep1());
                         break;
+
+                    // Show all the products and remove the products
                     case 2:
                         message = () =>
                         {
@@ -421,6 +444,8 @@ while (wantStay)
                         break;
                 }
             }
+
+            // If NOT logged in as admin, ask the user to login
             else
             {
                 Console.WriteLine("You are not logged in for the moment as Admin.");

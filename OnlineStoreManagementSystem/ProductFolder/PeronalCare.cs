@@ -117,7 +117,7 @@ namespace OnlineStoreManagementSystem
             Console.WriteLine($"Price : {Price}€");
             Console.WriteLine($"Personal care category : {PersonalCareCategory}");
             Console.WriteLine($"Colors : {colorList}");
-            Console.WriteLine($"Alergies : {allergyList}");
+            Console.WriteLine($"Allergies : {allergyList}");
         }
 
         #endregion

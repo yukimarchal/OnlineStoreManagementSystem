@@ -55,7 +55,7 @@ namespace OnlineStoreManagementSystem
             Console.WriteLine($"ID : {ProductId}");
             Console.WriteLine($"Name : {Name}");
             Console.WriteLine($"Price : {Price}€");
-            Console.WriteLine($"Alergies : {allergyList}");
+            Console.WriteLine($"Allergies : {allergyList}");
         }
 
         #endregion
