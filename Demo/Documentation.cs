@@ -1,4 +1,5 @@
-﻿#region Instructions JP
+﻿
+#region Instructions JP
 
 /*
 ### 総合演習：オンラインショップ管理システム
@@ -166,3 +167,5 @@ En suivant ces directives de conception, vous pourrez avancer dans la conception
 // EventHandler???
 
 #endregion
+
+Console.WriteLine(DateTime.Now);

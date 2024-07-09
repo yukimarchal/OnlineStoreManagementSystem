@@ -10,10 +10,10 @@ namespace OnlineStoreManagementSystem
     {
         public bool RedirectTo()
         {
-            Console.WriteLine("Payment is being proceeded");
-            Console.ReadLine();
-            // Redirect the user to the bankcontact payment
+            Console.Clear();
+            // Redirect the user to the credit card payment
             // If the payment is succeeded, return true
+            Console.WriteLine("Payment is being proceeded");
             Thread.Sleep(3000);
 
             return true;

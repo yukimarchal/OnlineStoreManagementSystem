@@ -51,6 +51,19 @@ namespace OnlineStoreManagementSystem
             //PaymentSucceeded = Pay();
         }
 
+        public Order(DateTime orderedDate, Dictionary<Product, int> orderedProducts, Customer customer, EnumPayment payment, Delivery delivery, bool paymentSucceeded)
+        {
+            OrderId = Guid.NewGuid();
+            OrderedDate = orderedDate;
+            OrderedProducts = orderedProducts;
+            Customer = customer;
+            Payment = payment;
+            Delivery = delivery;
+            PaymentSucceeded = paymentSucceeded;
+        }
+
+
+
         #endregion
 
         #region Properties
@@ -163,6 +176,8 @@ namespace OnlineStoreManagementSystem
         public void ShowContents()
         {
 			Console.Clear();
+
+			Tool.AddTitle("ORDER DETAIL");
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
             double totalPrice = 0;

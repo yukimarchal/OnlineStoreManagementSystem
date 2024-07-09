@@ -75,6 +75,15 @@ namespace OnlineStoreManagementSystem
 
         public void ShowContents()
         {
+            Console.Clear();
+            Tool.AddTitle("SHOPPING CART");
+
+            if (!ProductsInCart.Keys.Any())
+            {
+                Tool.ShowMessageRed("There is no product in the shopping list.");
+                return;
+            }
+
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
             List<Product> temp = ProductsInCart.Keys.ToList();
@@ -87,6 +96,8 @@ namespace OnlineStoreManagementSystem
                 if (product is Clothes clothes) clothes.ShowContents();
                 if (product is Food food) food.ShowContents();
                 if (product is PersonalCare personalCare) personalCare.ShowContents();
+
+                Console.WriteLine($"Qunatitiy : {ProductsInCart[product]}");
 
                 Tool.AddLine();
             }
@@ -101,6 +112,8 @@ namespace OnlineStoreManagementSystem
         /// <exception cref="ElementAlreadyRegisteredException"></exception>
         public void Add(Product product)
         {
+            Console.Clear();
+
             if(ProductsInCart.Any())
             {
                 // Verify if the product ID already exists in the list
@@ -112,8 +125,10 @@ namespace OnlineStoreManagementSystem
             }
             
             ProductsInCart.Add(product, 1);
-            Console.WriteLine($"Product was successfully added to the Cart");
+            Tool.ShowMessageColor("Product was successfully added to the Cart", ConsoleColor.Green);
+            Console.WriteLine();
             product.ShowContents();
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -182,6 +197,8 @@ namespace OnlineStoreManagementSystem
 
         public void ChangeQuantity(Guid id)
         {
+            Console.Clear();
+
             // Verify if the ID does not existe in the list
             if (!(ProductsInCart.Keys.Any(p => p.ProductId == id)))
             {
@@ -192,6 +209,8 @@ namespace OnlineStoreManagementSystem
             {
                 Console.WriteLine("How many would you like?");
                 Console.WriteLine("If the selected quantity is lower or equal to 0, the article will be deleted");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
             Tool.TryGetIntLimitedRange(message, out int result);
 
@@ -224,6 +243,8 @@ namespace OnlineStoreManagementSystem
             {
                 Console.WriteLine("To go to cart, push 0");
                 Console.WriteLine("To add a product in the cart, choose by number");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
 
             Tool.TryGetIntLimitedRange(message, 0, Products.Count(), out int result);
@@ -248,6 +269,8 @@ namespace OnlineStoreManagementSystem
             {
                 Console.WriteLine("To proceed a payment, push 0");
                 Console.WriteLine("To manage the quantity of a product, choose by number");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
 
             Tool.TryGetIntLimitedRange(message, 0, ProductsInCart.Count(), out int result);

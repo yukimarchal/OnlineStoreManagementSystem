@@ -104,6 +104,7 @@ namespace OnlineStoreManagementSystem
 
         public Delivery CreateDelivery(Guid orderId)
         {
+            Console.Clear();
             // Message to choose the delivery company
             MessageDelegate message = () =>
             {
@@ -113,6 +114,8 @@ namespace OnlineStoreManagementSystem
                 Console.WriteLine("2 : DPD");
                 Console.WriteLine("3 : BPost");
                 Console.WriteLine("4 : PostNL");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
 
             // Create a new instance
@@ -201,13 +204,18 @@ namespace OnlineStoreManagementSystem
 
         public void ChoosePayment(Guid orderId)
         {
+            Console.Clear();
+
             MessageDelegate message = () =>
             {
+                Tool.AddTitle("PAYMENT");
                 Console.WriteLine("Choose the payment method by number");
                 Console.WriteLine();
                 Console.WriteLine("1 : BankContact");
                 Console.WriteLine("2 : Credit card");
                 Console.WriteLine("3 : Paypal");
+                Console.WriteLine();
+                Console.Write("Your choice : ");
             };
 
             Tool.TryGetIntLimitedRange(message, 1, 3, out int result);
@@ -269,8 +277,11 @@ namespace OnlineStoreManagementSystem
 
         public Order AssignOrderInfo(Order order)
         {
+            Console.Clear();
             order.OrderedDate = DateTime.Now;
             order.Delivery = CreateDelivery(order.OrderId);
+
+            Console.Clear();
             Console.WriteLine($"Estimated delivery date : {order.Delivery.DeliveringDate}");
             return order;
 

@@ -58,16 +58,18 @@ namespace ToolBox
         {
             message();
             result = -1;
-            ConsoleKey choice = Console.ReadKey().Key;
+            string choice = Console.ReadLine();
 
-            if (choice == ConsoleKey.Escape)
-            {
-                return true;
-            }
+            //if (choice == ConsoleKey.Escape)
+            //{
+            //    Console.WriteLine();
+            //    return true;
+            //}
 
             try
             {
-                result = (int)choice;
+                result = int.Parse(choice);
+                Console.WriteLine();
                 return false;
             }
 
@@ -79,6 +81,7 @@ namespace ToolBox
                 TryGetIntLimitedRange(message, out result);
             }
 
+            Console.WriteLine();
             return false;
         }
         public static bool TryGetInt(MessageDelegate message, out int result)

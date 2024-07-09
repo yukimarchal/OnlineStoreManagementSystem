@@ -104,12 +104,11 @@ namespace OnlineStoreManagementSystem
             if(Products.Any(p => p.ProductId == product.ProductId))
             {
                 throw new ElementAlreadyRegisteredException();
-                //------------ AFTER EXECUTING THE EXEPTION, WHAT HAPPENS?? ---------
             }
 
             Products.Add(product);
-            //Console.WriteLine($"Product was successfully added");
-            //product.ShowContents();
+            Console.WriteLine($"Product was successfully added");
+            product.ShowContents();
         }
 
         /// <summary>

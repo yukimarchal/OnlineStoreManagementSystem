@@ -230,6 +230,18 @@ Console.OutputEncoding = Encoding.UTF8;
 
 #endregion
 
+#region variables
+
+bool isLoggedIn = false;
+bool wantStay = true;
+bool wantSeeCart = false;
+bool wantPay = false;
+Account currentAccount = null;
+Admin currentAdmin = null;
+Order currentOrder = null;
+
+#endregion
+
 #region Managers and shopping cart
 
 ProductManager productManager = new ProductManager();
@@ -245,20 +257,14 @@ ShoppingCart cart = new ShoppingCart();
 Product c1 = new Clothes("Summer Dress", 29.99, EnumClothes.Dress, EnumColor.Red, EnumColor.White);
 Product c2 = new Clothes("Casual T-Shirt", 19.99, EnumClothes.T_shirt, EnumColor.Blue, EnumColor.Gray);
 Product c3 = new Clothes("Formal Blouse", 39.99, EnumClothes.Blouse, EnumColor.Beige, EnumColor.Black);
-Product c4 = new Clothes("Denim Pants", 49.99, EnumClothes.Pants, EnumColor.Blue);
-Product c5 = new Clothes("Winter Sweater", 59.99, EnumClothes.Sweater, EnumColor.Gray, EnumColor.White, EnumColor.Purple);
 
 Product f1 = new Food("Almond Milk", 3.99, EnumAllergy.Nuts);
 Product f2 = new Food("Whole Wheat Bread", 2.49, EnumAllergy.Wheat);
 Product f3 = new Food("Peanut Butter", 3.49, EnumAllergy.Nuts);
-Product f4 = new Food("Cheese Pizza", 8.99, EnumAllergy.Milk, EnumAllergy.Wheat);
-Product f5 = new Food("Shrimp Salad", 10.99, EnumAllergy.Shellfish);
 
 Product p1 = new PersonalCare("Face Cream", 25.99, EnumPersonalCare.Skin_care, EnumColor.White, EnumAllergy.Milk, EnumAllergy.Nuts);
 Product p2 = new PersonalCare("Shampoo", 8.99, EnumPersonalCare.Hair_care, EnumColor.Blue, EnumAllergy.None);
 Product p3 = new PersonalCare("Body Lotion", 12.99, EnumPersonalCare.Body_care, EnumColor.Pink, EnumColor.White, EnumAllergy.Soy, EnumAllergy.Celery);
-Product p4 = new PersonalCare("Nail Polish", 7.99, EnumPersonalCare.Nail_care, EnumColor.Red, EnumAllergy.None);
-Product p5 = new PersonalCare("Toothpaste", 4.99, EnumPersonalCare.Oral_care, EnumColor.White, EnumColor.Blue, EnumAllergy.None);
 
 #endregion
 
@@ -267,20 +273,14 @@ Product p5 = new PersonalCare("Toothpaste", 4.99, EnumPersonalCare.Oral_care, En
 productManager.Add(c1);
 productManager.Add(c2);
 productManager.Add(c3);
-productManager.Add(c4);
-productManager.Add(c5);
 
 productManager.Add(f1);
 productManager.Add(f2);
 productManager.Add(f3);
-productManager.Add(f4);
-productManager.Add(f5);
 
 productManager.Add(p1);
 productManager.Add(p2);
 productManager.Add(p3);
-productManager.Add(p4);
-productManager.Add(p5);
 
 #endregion
 
@@ -295,24 +295,32 @@ accountManager.Add(account);
 
 #endregion
 
-#region Home
+//#region Shopping cart
 
-bool isLoggedIn = false;
-bool wantStay = true;
-bool wantSeeCart = false;
-bool wantPay = false;
-Account currentAccount = null;
-Admin currentAdmin = null;
-Order currentOrder = null;
+//account.Cart.Add(c1);
+//account.Cart.Add(f1);
+//account.Cart.Add(p1);
+
+//#endregion
+
+//#region Order and delivery
+
+//Delivery delivery = new Delivery(EnumDeliveryCompany.BPost, DateTime.Now.AddDays(-5), DateTime.Now.AddDays(-5));
+//Order order = new Order(DateTime.Now.AddDays(-10), account.Cart.ProductsInCart, customer, EnumPayment.BankContact, delivery, true);
+//account.OManager.Add(order);
+
+//#endregion
+
+#region Home
 
 while (wantStay)
 {
     Console.Clear();
-    Tool.AddTitle("MENU");
 
     // The user choose the action
     MessageDelegate message = () =>
     {
+        Tool.AddTitle("MENU");
         Console.WriteLine("What would you like to do?");
         Console.WriteLine();
         Console.WriteLine("1 : Look at our products");
@@ -340,9 +348,6 @@ while (wantStay)
             // If NOT logged in, ask the user to log in or create an account
             else
             {
-                Console.WriteLine();
-                Console.WriteLine("You are not logged in.");
-
                 isLoggedIn = accountManager.LoginOrCreate(ref currentAccount);
             }
 
@@ -350,7 +355,7 @@ while (wantStay)
             if (wantSeeCart) 
             {
                 cart.ShowContents();
-                wantPay = cart.ManageCartOrPay();
+                if (cart.ProductsInCart.Any()) wantPay = cart.ManageCartOrPay();
 
                 if (wantPay)
                 {
@@ -361,6 +366,7 @@ while (wantStay)
                     {
                         string message = $"The payment n° {order.OrderId} was successfully proceeded";
                         Tool.ShowMessageColor(message, ConsoleColor.Green);
+                        Thread.Sleep(3000);
                     };
 
                     await orderManager.Pay(currentOrder.OrderId);
@@ -374,10 +380,16 @@ while (wantStay)
         case 2:
             if (isLoggedIn)
             {
+                Console.Clear();
                 message = () =>
                 {
-                    Console.WriteLine("Which order would you like to manage? Choose by number");
+                    Tool.AddTitle("ORDERS");
+
                     orderManager.ShowAllOrders();
+                    
+                    Console.WriteLine("Which order would you like to manage? Choose by number");
+                    Console.WriteLine();
+                    Console.Write("Your choice : ");
                 };
                 Tool.TryGetIntLimitedRange(message, 1, orderManager.Count(), out result);
 
@@ -426,6 +438,7 @@ while (wantStay)
                 isLoggedIn = true;
             }
 
+            Tool.ReturnToMenu();
             break;
     }
 }

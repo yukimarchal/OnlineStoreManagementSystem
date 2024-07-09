@@ -160,7 +160,7 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public static string AskFirstName()
         {
-            Console.WriteLine("What is the FIRST name of the customer?");
+            Console.Write("First Name : ");
             string firstName = Console.ReadLine();
             return firstName;
         }
@@ -171,7 +171,7 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public static string AskLastName()
         {
-            Console.WriteLine("What is the LAST name of the customer?");
+            Console.Write("Last Name : ");
             string lastName = Console.ReadLine();
             return lastName;
         }
@@ -182,7 +182,7 @@ namespace OnlineStoreManagementSystem
         /// <returns></returns>
         public static string AskAddress()
         {
-            Console.WriteLine("What is the address of the customer?");
+            Console.Write("Address : ");
             string address = Console.ReadLine();
             return address;
         }

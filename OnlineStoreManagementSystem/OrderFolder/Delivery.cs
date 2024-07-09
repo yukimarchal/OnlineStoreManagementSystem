@@ -32,6 +32,14 @@ namespace OnlineStoreManagementSystem
             DeliveringDate = DateTime.Now.AddDays(5);
         }
 
+        public Delivery(EnumDeliveryCompany company, DateTime deliveringDate, DateTime? deliveredDate)
+        {
+            DeliveryId = Guid.NewGuid();
+            Company = company;
+            DeliveringDate = deliveringDate;
+            DeliveredDate = deliveredDate;
+        }
+
         #endregion
 
         #region Properties

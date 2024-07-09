@@ -80,7 +80,7 @@ namespace OnlineStoreManagementSystem.Person
             }
 
             Admins.Add(admin);
-            //Console.WriteLine($"Admin was successfully added");
+            Console.WriteLine($"Admin was successfully added");
         }
 
         /// <summary>

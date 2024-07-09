@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\person\\accountmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\person\\accountmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C63F1682-C433-4063-BC59-8996CD9D92B4}|ToolBox\\ToolBox.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\toolbox\\tool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63F1682-C433-4063-BC59-8996CD9D92B4}|ToolBox\\ToolBox.csproj|solutionrelative:toolbox\\tool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|c:\\users\\student\\onedrive - technobel\\c#\\onlinestoremanagementsystem\\onlinestoremanagementsystem\\person\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02E48BC7-F519-4007-B03B-936D9B3D8C93}|OnlineStoreManagementSystem\\OnlineStoreManagementSystem.csproj|solutionrelative:onlinestoremanagementsystem\\person\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,59 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\Program.cs",
               "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\Program.cs",
               "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\Program.cs",
               "RelativeToolTip": "OnlineStoreManagementSystem\\Program.cs",
-              "ViewState": "AQIAADQBAAAAAAAAAAAAAEABAAAcAAAA",
+              "ViewState": "AQIAAHYBAAAAAAAAAAAowIoBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T12:56:39.119Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Tool.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\ToolBox\\Tool.cs",
-              "RelativeDocumentMoniker": "ToolBox\\Tool.cs",
-              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\ToolBox\\Tool.cs",
-              "RelativeToolTip": "ToolBox\\Tool.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAhwKUAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T12:34:07.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\Person\\Account.cs",
-              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\Person\\Account.cs",
-              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\Person\\Account.cs",
-              "RelativeToolTip": "OnlineStoreManagementSystem\\Person\\Account.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAApwFIAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T12:19:21.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountManager.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\Person\\AccountManager.cs",
-              "RelativeDocumentMoniker": "OnlineStoreManagementSystem\\Person\\AccountManager.cs",
-              "ToolTip": "C:\\Users\\Student\\OneDrive - Technobel\\C#\\OnlineStoreManagementSystem\\OnlineStoreManagementSystem\\Person\\AccountManager.cs",
-              "RelativeToolTip": "OnlineStoreManagementSystem\\Person\\AccountManager.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAhwE0AAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-09T12:16:49.708Z",
               "EditorCaption": ""
             }
           ]

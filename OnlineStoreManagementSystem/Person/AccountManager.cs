@@ -52,6 +52,7 @@ namespace OnlineStoreManagementSystem.Person
             bool isLoggedIn = false;
             MessageDelegate message = () =>
             {
+                Console.WriteLine("You are not logged in for the moment.");
                 Console.WriteLine("Are you already a customer of ours?");
                 Console.WriteLine();
                 Console.WriteLine("1 : YES. I want to log in");
@@ -75,20 +76,14 @@ namespace OnlineStoreManagementSystem.Person
                 isLoggedIn = true;
             }
 
-            Console.Clear();
             return isLoggedIn;
         }
 
         public Account AddAccount()
         {
             Console.Clear();
-            MessageDelegate message = () =>
-            {
-                Console.Write("Email : ");
-
-            };
-
-            Tool.ShowMessageColor(message, ConsoleColor.Blue);
+            Tool.AddTitle("NEW ACCOUNT");
+            Console.Write("Email : ");
             string email = Console.ReadLine();
 
             // Verify if the account ID (email) already exists in the list
@@ -98,14 +93,11 @@ namespace OnlineStoreManagementSystem.Person
                 AddAccount();
             }
 
-            message = () =>
-            {
-                Console.Write("Pass : ");
-
-            };
+            Console.Write("Pass : ");
             string pass = Console.ReadLine();
 
-            Accounts.Add(new Account(pass, CustomerManager.AddCustomer()));
+            Account temp = new Account(pass, CustomerManager.AddCustomer(email));
+            Accounts.Add(temp);
             return this[email];
         }
 
@@ -125,7 +117,7 @@ namespace OnlineStoreManagementSystem.Person
             }
 
             Accounts.Add(account);
-            //Console.WriteLine($"Account was successfully added");
+            Console.WriteLine($"Account was successfully added");
         }
 
         /// <summary>
