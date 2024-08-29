@@ -359,7 +359,10 @@ while (wantStay)
                         Thread.Sleep(3000);
                     };
 
-                    await orderManager.Pay(currentOrder.OrderId);
+                    await
+                        orderManager.Pay(currentOrder.OrderId);
+                        cart.ProductsInCart.Clear();
+
                 }
                 wantSeeCart = false;
             }
